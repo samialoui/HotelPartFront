@@ -10,13 +10,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { Etape2ReservationComponent } from './components/etape2-reservation/etape2-reservation.component';
 import { Etape3ReservationComponent } from './components/etape3-reservation/etape3-reservation.component';
+import { FactureFinaleComponent } from './components/facture-finale/facture-finale.component';
 
 const appRoute: Routes = [
   {path: '', component: AcceuilComponent},
   {path: 'acceuil', component: AcceuilComponent},
   {path: 'etape1-res', component: Etape1ReservationComponent},
   {path: 'etape2-res', component: Etape2ReservationComponent},
-  {path: 'etape3-res', component: Etape3ReservationComponent}
+  {path: 'etape3-res', component: Etape3ReservationComponent},
+  {path: 'facture', component: FactureFinaleComponent}
+
 ];
 
 @NgModule({
@@ -26,7 +29,8 @@ const appRoute: Routes = [
     Etape1ReservationComponent,
     NavbarComponent,
     Etape2ReservationComponent,
-    Etape3ReservationComponent
+    Etape3ReservationComponent,
+    FactureFinaleComponent
    
   ],
   imports: [
