@@ -1,0 +1,79 @@
+<div class="form-group row">
+    <div class="row centered-form">
+    <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="panel panel-default">
+        
+                     <div class="panel-body">
+                    <form class="form-group">
+                        <div class="row">
+                            
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Numéro Chambre*</label>
+                                            <input type="text" name="ChambreNum" id="ChambreNum" class="form-control" placeholder="numéro chambre ..."
+                                            [(ngModel)]="ChambreNum" #num>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Type Chambre*</label>
+                                            <input type="text" name="TypeChamb" id="TypeChamb" class="form-control" placeholder="type chambre ..."
+                                            [(ngModel)]="TypeChamb" #typ>
+                                </div>
+                            </div>
+                            <div class="col-xs-15 col-sm-15 col-md-6">
+                                <div class="form-group">
+                                    <label>Prix Nuit*</label>
+                                            <input type="text" name="PrixNuit" id="PrixNuit" class="form-control" placeholder="prix nuit ..."
+                                            [(ngModel)]="PrixNuit" #pri>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label >Nombre De Lit*</label>
+                                            <input type="text" name="nbLit" id="nbLit" class="form-control" placeholder="nombre de lit ..."
+                                            [(ngModel)]="nbLit" #lit>
+                                </div>
+                            </div>
+                            <div class="col-xs-15 col-sm-15 col-md-6">
+                                <div class="form-group">
+                                    <label>Description*</label>
+                                    <input type="text" name="Descript" id="Descript" class="form-control" placeholder="description ..."
+                                    [(ngModel)]="Descript" #desc>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label >Disponibilité*</label>
+                                            <input type="text" name="Disponibilite" id="Disponibilite" class="form-control" placeholder="disponibilité ..."
+                                            [(ngModel)]="Disponibilite" #disp>
+                                </div>
+                            </div>
+                            <div class="col-xs-15 col-sm-15 col-md-6">
+                                <div class="form-group">
+                                    <label>Saison*</label>
+                                    <input type="text" name="Saison" id="Saison" class="form-control" placeholder="saison ..."
+                                    [(ngModel)]="Saison" #sais>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-6 col-md-6" style="margin-top: 5%;">
+                                <div class="form-group">
+                                    <img [src]="imageUrl" height="250px" width="200px">
+                                    <input type="file" #Photo accept="image/*" (change)="handleFileInput($any($event).target.files)"><!--(change)="uploadPhoto($event)"-->
+                                    
+                                </div>
+                            </div>
+                        </div>			    			
+                            
+                        <button (click)="OnSubmit(num,typ,pri,lit,desc,disp,sais,Photo)"   *ngIf="chamb.ChambreId==0" class="btn btn-primary">Ajouter</button>
+                        <button (click)="updateChamb()"  *ngIf="chamb.ChambreId!=0" class="btn btn-primary">Modifier</button>   
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        

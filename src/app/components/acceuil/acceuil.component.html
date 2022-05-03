@@ -1,18 +1,18 @@
 
     <main class="no-padding">
-    <div class="container">
+    <div class="container"  *ngIf="type!= 'admin'">
     <div class="row">
     
     
     <div class="col-md-12 entry">
     
-      <li style="background-image: url(assets/images/swiming.jpg); width: 100%; height: 100%;">
+      <li style="background-image: url(assets/images/headers.jpg); width: 100%; height: 100%;">
         <div class="overlay-gradient"></div>
         <div class="container">
             <div class="col-md-12 col-md-offset-0 text-center slider-text">
                 <div class="slider-text-inner js-fullheight">
-                    <div class="desc">
-                        <p><span>Hôtel Zodiac Hammamet</span></p>
+                    <div class="desc" >
+                        <p><span style="color: white;">Hôtel Zodiac Hammamet</span></p>
                         <h2 style="color: white;">Réserver une chambre pour des vacances en famille</h2>
                     </div>
                 </div>
@@ -25,19 +25,19 @@
           <div class="wpb_wrapper">
             <div class="hbf half-over-slider">
     <div class="inner">
-    <form id="search-form" class="search-form" action="https://demo.zantetheme.com/search/" method="get" target="">
+    <form id="search-form" class="search-form"  method="get" target="">
     <div class="row">
      <div class="col-md-4">
     <label for="eagle_booking_datepicker">Arrivée/Départ</label>
     <input id="eagle_booking_datepicker" type="text" class="form-control eagle-booking-datepicker" placeholder="Arrivée &nbsp;&nbsp;→&nbsp;&nbsp; Départ" value="" autocomplete="off" readonly>
-    <input id="eagle_booking_checkin" type="hidden" name="eb_checkin">
-    <input id="eagle_booking_checkout" type="hidden" name="eb_checkout">
+    <input id="eagle_booking_checkin" type="hidden" name="eb_checkin" #arrive>
+    <input id="eagle_booking_checkout" type="hidden" name="eb_checkout" #depart>
     </div>
     <div class="col-md-4">
     <label for="eagle_booking_guests">Invitées</label>
     <div class="eb-guestspicker">
     <div class="form-control guestspicker">
-        Invitées <span class="gueststotal"></span>
+        Invitées <span class="gueststotal" #total ></span>
     </div>
     <div class="eb-guestspicker-content">
     <div class="guests-buttons">
@@ -47,18 +47,18 @@
     </div>
     <div class="guests-button">
     <div class="minus"></div>
-    <input type="text" id="eagle_booking_adults" name="eb_adults" class="booking-guests" value="1" min="1" max="4">
+    <input type="text" id="eagle_booking_adults" name="eb_adults" class="booking-guests"  value="1" min="1"  max="2">
     <div class="plus"></div>
     </div>
     </div>
     <div class="guests-buttons">
     <div class="description">
-    <label>Children</label>
+    <label>Enfants</label>
     <div class="ages">Age 4 - 18</div>
     </div>
     <div class="guests-button">
     <div class="minus"></div>
-    <input type="text" id="eagle_booking_children" name="eb_children" class="booking-guests" value="0" min="0" max="4">
+    <input type="text" id="eagle_booking_children" name="eb_children" class="booking-guests"  value="0" min="0" max="1">
     <div class="plus"></div>
     </div>
     </div>
@@ -66,7 +66,7 @@
     </div>
     </div>
     <div class="col-md-4">
-    <button id="eb_search_form" class="button eb-btn" type="submit" routerLink="/etape1-res">
+    <button  class="button eb-btn" type="submit" (click)="SauvInvite(total,arrive,depart)">
     <span class="eb-btn-text">Voir les disponibilités</span>
     </button>
     </div>
@@ -85,7 +85,12 @@
     </div>
     <div class="wpb_text_column wpb_content_element ">
     <div class="wpb_wrapper">
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.</p>
+    <p>HOTEL ZODICA HAMMAMET est un hôtel 4 étoiles à Yasmine Hammamet Tunisie  Situé à 11 minutes à pied du parc d'attractions Carthage Land, cet hôtel à l'atmosphère décontractée se trouve à 5 minutes de la plage la plus proche et à 9 km du parcours 18 trous du Golf 
+        Citrus.
+        
+        Les chambres sobres et colorées sont dotées de la télévision par satellite. Des chambres familiales sont proposées. Les suites bénéficient d'une salle de séjour séparée.
+        
+        Le petit-déjeuner gratuit est servi dans un bar-restaurant lumineux et convivial. L'établissement possède en plus une piscine extérieure, une piscine intérieure chauffée et une piscine pour enfants. Un spa, une salle de sport et 2 courts de tennis sont proposés. Des animations sont régulièrement organisées.</p>
     </div>
     </div>
     
@@ -99,8 +104,8 @@
     <div class="side left"></div>
     <div class="side right"></div>
     <div class="images">
-    <div class="front-image" style="background-image: url(https://demo.zantetheme.com/wp-content/uploads/2018/07/about1.jpg)"></div>
-    <div class="back-image" style="background-image: url(https://demo.zantetheme.com/wp-content/uploads/2018/07/about2.jpg)"></div>
+    <div class="front-image" style="background-image: url(/assets/images/HOTEL.jpg)"></div>
+    <div class="back-image" style="background-image: url(/assets/images/photoHotel.jpg)"></div>
     </div>
     </div>
     </div></div></div></div><div class="vc_row-full-width vc_clearfix"></div><div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid gray-bg vc_custom_1531849737322 vc_row-has-fill"><div class="wpb_column vc_column_container vc_col-sm-12"><div class="vc_column-inner"><div class="wpb_wrapper"> <div class="main_title  text-center  ">
@@ -111,13 +116,13 @@
     <div class="first-col">
     <div class="room-item ">
     <figure class="room-image gradient-overlay overlay-opacity-02 slide-right-hover">
-    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">199</span></strong></span><span class="per-night-text"> / nuit</span></div> <a href="https://demo.zantetheme.com/rooms/deluxe-room/">
-    <img src="https://demo.zantetheme.com/wp-content/uploads/2018/05/room-full-1-720x470.jpg" alt="Deluxe Room">
+    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{chamb1.PrixNuit}}</span></strong></span><span class="per-night-text"> / nuit</span></div> <a href="https://demo.zantetheme.com/rooms/deluxe-room/">
+    <img src="/assets/images/chambres/{{chamb1.Photo}}" alt="Deluxe Room">
     </a>
     </figure>
     <div class="room-details">
     <h3 class="room-title">
-    <a href="https://demo.zantetheme.com/rooms/deluxe-room/">Chambre de luxe</a>
+    <a href="https://demo.zantetheme.com/rooms/deluxe-room/">{{chamb1.TypeChamb}}</a>
     </h3>
     <div class="room-services">
     <div class="dragscroll">
@@ -155,13 +160,13 @@
     <div class="second-col">
     <div class="room-item small-item">
     <figure class="room-image gradient-overlay overlay-opacity-02 slide-right-hover">
-    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">30</span></strong></span><span class="per-night-text"> / nuit</span></div> <a href="https://demo.zantetheme.com/rooms/single-room/">
-    <img src="https://demo.zantetheme.com/wp-content/uploads/2018/05/single-720x470.jpg" alt="Single Room">
+    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{chamb2.PrixNuit}}</span></strong></span><span class="per-night-text"> / nuit</span></div> <a href="https://demo.zantetheme.com/rooms/single-room/">
+    <img src="/assets/images/chambres/{{chamb2.Photo}}" alt="Single Room">
     </a>
     </figure>
     <div class="room-details">
     <h3 class="room-title">
-    <a href="https://demo.zantetheme.com/rooms/single-room/">Chambre simple</a>
+    <a href="https://demo.zantetheme.com/rooms/single-room/">{{chamb2.TypeChamb}}</a>
     </h3>
     <div class="room-services">
     <div class="dragscroll">
@@ -198,13 +203,13 @@
     </div>
     <div class="room-item small-item">
     <figure class="room-image gradient-overlay overlay-opacity-02 slide-right-hover">
-    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">189</span></strong></span><span class="per-night-text"> / nuit</span></div> <a href="https://demo.zantetheme.com/rooms/family-room/">
-    <img src="https://demo.zantetheme.com/wp-content/uploads/2018/05/1-720x470.jpg" alt="Family Room">
+    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{chamb3.PrixNuit}}</span></strong></span><span class="per-night-text"> / nuit</span></div> <a href="https://demo.zantetheme.com/rooms/family-room/">
+    <img src="/assets/images/chambres/{{chamb3.Photo}}" alt="Family Room">
     </a>
     </figure>
     <div class="room-details">
     <h3 class="room-title">
-    <a href="https://demo.zantetheme.com/rooms/family-room/">Chambre familiale</a>
+    <a href="https://demo.zantetheme.com/rooms/family-room/">{{chamb3.TypeChamb}}</a>
     </h3>
     <div class="room-services">
     <div class="dragscroll">
@@ -235,13 +240,13 @@
     </div>
     <div class="room-item small-item">
     <figure class="room-image gradient-overlay overlay-opacity-02 slide-right-hover">
-    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">111</span></strong></span><span class="per-night-text"> / nuit</span></div> <a href="https://demo.zantetheme.com/rooms/king-room/">
-    <img src="https://demo.zantetheme.com/wp-content/uploads/2018/05/king-room-720x470.jpg" alt="King Room">
+    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{chamb4.PrixNuit}}</span></strong></span><span class="per-night-text"> / nuit</span></div> <a href="https://demo.zantetheme.com/rooms/king-room/">
+    <img src="/assets/images/chambres/{{chamb4.Photo}}" alt="King Room">
     </a>
     </figure>
     <div class="room-details">
     <h3 class="room-title">
-    <a href="https://demo.zantetheme.com/rooms/king-room/">Chambre Lit King-Size</a>
+    <a href="https://demo.zantetheme.com/rooms/king-room/">{{chamb4.TypeChamb}}</a>
     </h3>
     <div class="room-services">
     <div class="dragscroll">
@@ -281,13 +286,13 @@
     </div>
     <div class="room-item small-item">
     <figure class="room-image gradient-overlay overlay-opacity-02 slide-right-hover">
-    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">30</span></strong></span><span class="per-night-text"> / nuit</span></div> <a href="https://demo.zantetheme.com/rooms/honeymoon/">
-    <img src="https://demo.zantetheme.com/wp-content/uploads/2018/05/honeymoon-720x470.jpg" alt="Honeymoon Room">
+    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{chamb5.PrixNuit}}</span></strong></span><span class="per-night-text"> / nuit</span></div> <a href="https://demo.zantetheme.com/rooms/honeymoon/">
+    <img src="/assets/images/chambres/{{chamb5.Photo}}" alt="Honeymoon Room">
     </a>
     </figure>
     <div class="room-details">
     <h3 class="room-title">
-    <a href="https://demo.zantetheme.com/rooms/honeymoon/">Chambre Lune de Miel</a>
+    <a href="https://demo.zantetheme.com/rooms/honeymoon/">{{chamb5.TypeChamb}}</a>
     </h3>
     <div class="room-services">
     <div class="dragscroll">
@@ -320,7 +325,7 @@
     <div class="vc_empty_space" style="height: 30px"><span class="vc_empty_space_inner"></span></div>
     
     <div id="btn-container-U9Ncj" class="text-center">
-    <a href="/zante/rooms" id="btn-U9Ncj" class="btn " target="_self">
+    <a routerLink="/rooms" id="btn-U9Ncj" class="btn " target="_self">
         voir toutes les chambres <i class="fa fa fa-chevron-right"></i>
     </a>
     </div>
@@ -339,13 +344,13 @@
     </div>
     
     <div class="col-md-5">
-    <div class="owl-thumbs" data-slider-id="features-WUEzO">
+    <div class="owl-thumbs" data-slider-id="features-WUEzO" ngFor="let item of ServiceList">
     
     <div class="owl-thumb-item">
     <span class="media-left"><img src="https://demo.zantetheme.com/wp-content/uploads/2018/05/plate.png" alt="Restaurant"></span>
     <div class="media-body">
     <h3>Restaurant</h3>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+    <p>Bon restaurant avec une grande variété des plats au buffet. Proche de plusieurs restaurants…</p>
     </div>
     </div>
     
@@ -353,7 +358,7 @@
     <span class="media-left"><img src="https://demo.zantetheme.com/wp-content/uploads/2018/05/spa.png" alt="Spa - Beauty &amp; Health"></span>
     <div class="media-body">
     <h3>Spa - Beauté &amp; Santé</h3>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+    <p>il se doit obligatoirement de proposer des soins et non de disposer uniquement d’une piscine, sauna, hammam. On distinguera : Les soins « secs » : soins esthétiques, massages/modelages, manucure, coiffure…</p>
     </div>
     </div>
     
@@ -361,7 +366,7 @@
     <span class="media-left"><img src="https://demo.zantetheme.com/wp-content/uploads/2018/05/conference.png" alt="Conference Room"></span>
     <div class="media-body">
     <h3>Salle de conférence</h3>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+    <p>	Une salle polyvalente d'une capacité de 750 personnes, spécialement conçue pour accueillir vos séminaires, conférences, formations, mariages.</p>
     </div>
     </div>
     
@@ -369,9 +374,10 @@
     <span class="media-left"><img src="https://demo.zantetheme.com/wp-content/uploads/2018/05/swimmer.png" alt="Swimming Pool"></span>
     <div class="media-body">
     <h3>Piscine</h3>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.</p>
+    <p>Les piscines sont incroyables, il y a toujours plein de transats autour de toutes les piscines, le parc aquatique est génial pour tous les âges.</p>
     </div>
     </div>
+    
     </div>
     </div>
     </div>
@@ -451,7 +457,7 @@
     </div></div></div><div class="wpb_column vc_column_container vc_col-sm-6"><div class="vc_column-inner"><div class="wpb_wrapper">
     
     <div id="btn-container-Ig4jB" class="text-right">
-    <a href="/zante/testimonials" id="btn-Ig4jB" class="btn " target="_self">
+    <a routerLink="/avis" id="btn-Ig4jB" class="btn " target="_self">
         voir tous les avis <i class="fa fa fa-chevron-right"></i>
     </a>
     </div>

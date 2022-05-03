@@ -1,2 +1,7 @@
-<app-navbar></app-navbar>
+<!--partie user-->
+<app-navbar *ngIf="type!= 'admin'"></app-navbar>
+
+<!--partie admin-->
+<app-navbar-admin *ngIf="type== 'admin'"></app-navbar-admin>
+
 <router-outlet></router-outlet>

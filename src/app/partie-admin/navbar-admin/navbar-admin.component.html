@@ -1,0 +1,27 @@
+<header class="fixed " *ngIf="type== 'admin'" >
+    <div class="container">
+    <div class="navbar-header">
+    <button type="button" class="navbar-toggle mobile_menu_btn" data-toggle="collapse" data-target=".mobile_menu" aria-expanded="false">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand light" href="/">
+    <img src="assets/images/logo.PNG" >
+    </a>
+    <a class="navbar-brand dark nodisplay" href="https://demo.zantetheme.com/">
+    <img src="assets/images/logo.PNG" height="32" style="height: 32px" alt="Hotel Zodiac">
+    </a> </div>
+    <nav id="main_menu" class="mobile_menu navbar-collapse">
+    <ul id="menu-main-menu" class="nav navbar-nav"><li class="mobile_menu_title" style="display:none;">Menu</li>
+    <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-79" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-79"><a href="/">Acceuil</a></li>
+    <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-79" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-79"><a routerLink="/chambres">Chambres</a></li>
+    
+    <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-79" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-79"><a href="">Réservations</a></li>
+    <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-79" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-79"><a routerLink="/serviceAdmin">Services</a></li>
+    <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-79" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-79"><a routerLink="/blogeurs">Blogeurs</a></li>
+    <li itemscope="itemscope" itemtype="https://www.schema.org/SiteNavigationElement" id="menu-item-79" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-79"><a routerLink="/admin-gestion">Administrateurs</a></li>
+  <li class="menu_button"> <button (click)="deconnexion()"><a href="/" class="btn btn-success" target="_self"><i class="fa fa-user"></i>Déconnexion</a></button></li></ul>
+    </nav>
+    </div>
+    </header>

@@ -1,0 +1,130 @@
+
+	
+<div class="container" style="margin-top: 70px;"  >
+
+ 
+    <h3><strong>15 chambres trouvés</strong></h3>
+    <br><br>
+    <div *ngFor="let dataItem of ChambreList">
+        <div id="eb-search-room-937" class="room-list-item" >
+            <div class="room-list-item-grid">
+            <figure>
+            <a href="https://demo.zantetheme.com/rooms/deluxe-room/">
+            <span class="featured-room"><i class="fa fa-star"></i>Featured</span>
+            <img src="/assets/images/chambres/{{dataItem.Photo}}" alt="Deluxe Room" loading="lazy" style="width: 100%; height: 100%">
+            </a>
+            </figure>
+            <div class="room-details">
+            <h2 class="title">
+            <a href="https://demo.zantetheme.com/rooms/deluxe-room/">{{dataItem.TypeChamb}}</a>
+            </h2>
+            <p>{{dataItem.Descript}}</p>
+            <div class="room-services">
+            <div class="dragscroll">
+            <div class="room-service-item" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Wi-Fi Included" data-original-title="Wi-Fi">
+            <i class="fa fa-wifi"></i>
+            </div>
+            <div class="room-service-item" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Hair Dryer Included" data-original-title="Hair Dryer">
+            <i class="fa fa-female"></i>
+            </div>
+            <div class="room-service-item" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Sauna Included" data-original-title="Sauna">
+            <i class="fa fa-bath"></i>
+            </div>
+            <div class="room-service-item" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Breakfast Included" data-original-title="Breakfast">
+            <i class="fa fa-cutlery"></i>
+            </div>
+            <div class="room-service-item" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Coffee Maker Included" data-original-title="Coffee Maker">
+            <i class="fa fa-coffee"></i>
+            </div>
+            <div class="room-service-item" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Mini Bar Included" data-original-title="Mini Bar">
+            <i class="fa fa-glass"></i>
+            </div>
+            <div class="room-service-item" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Free-to-use Smartphone" data-original-title="Free-to-use Smartphone">
+            <i class="fa fa-mobile"></i>
+            </div>
+            <div class="room-service-item" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Widescreen TV Included" data-original-title="Widescreen TV">
+            <i class="fa fa-television"></i>
+            </div>
+            <div class="room-service-item" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="Air Conditioner Included" data-original-title="Air Conditioner">
+            <i class="fa fa-snowflake-o"></i>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="room-price-details">
+            <div class="room-price-search">
+            <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{dataItem.PrixNuit}}</span></strong></span><span class="per-night-text"> per night</span></div> <form method="post" action="https://demo.zantetheme.com/booking/">
+            <input type="hidden" name="eb_room_id" value="937">
+            <input type="hidden" name="eb_checkin" value="04/14/2022">
+            <input type="hidden" name="eb_checkout" value="05/10/2022">
+            <input type="hidden" name="eb_guests" value="1">
+            <input type="hidden" name="eb_adults" value="1">
+            <input type="hidden" name="eb_children" value="2">
+            <button class="eb-btn btn" name="submit" type="submit">
+            <a style="color: white;" href="/etape2-res">Réserver Maintenant</a>
+            <span class="total-price-text">For <span class="price-currency">$</span><span class="price-amount">{{dataItem.PrixNuit}}</span> </span>
+            </button>
+            </form>
+            </div>
+            <div class="toggle-room-breakpoint room-more-details">
+              Disponibilité et détails <i class="fa fa-angle-down" aria-hidden="true"></i>
+            </div>
+            </div>
+            </div>
+            <div class="room-quick-details">
+            <div id="availability-calendar-937"></div>
+            <div class="room-services-list">
+            <h6 class="section-title">Included Services</h6>
+            <div class="eb-g-3 eb-g-m-2 mt30">
+            <div class="room-services-item">
+            <i class="fa fa-wifi"></i>
+            Wi-Fi </div>
+            <div class="room-services-item">
+            <i class="fa fa-female"></i>
+            Hair Dryer </div>
+            <div class="room-services-item">
+            <i class="fa fa-bath"></i>
+            Sauna </div>
+            <div class="room-services-item">
+            <i class="fa fa-cutlery"></i>
+            Breakfast </div>
+            <div class="room-services-item">
+            <i class="fa fa-coffee"></i>
+            Coffee Maker </div>
+            <div class="room-services-item">
+            <i class="fa fa-glass"></i>
+            Mini Bar </div>
+            <div class="room-services-item">
+            <i class="fa fa-mobile"></i>
+            Free-to-use Smartphone </div>
+            <div class="room-services-item">
+            <i class="fa fa-television"></i>
+            Widescreen TV </div>
+            <div class="room-services-item">
+            <i class="fa fa-snowflake-o"></i>
+            Air Conditioner </div>
+            </div>
+            </div>
+            <div class="room-services-list">
+            <h6 class="section-title">Additional Services</h6>
+            <div class="eb-g-3 eb-g-m-2 mt30">
+            <div class="room-services-item">
+            <i class="fas fa-taxi"></i>
+            Airport Pickup </div>
+            <div class="room-services-item">
+            <i class="fas fa-broom"></i>
+            Sightseeing Tour </div>
+            <div class="room-services-item">
+            <i class="fas fa-spa"></i>
+            Massage &#038; Spa </div>
+            </div>
+            </div>
+            </div>
+            </div>
+<br><br>
+</div>
+ 
+
+
+
+

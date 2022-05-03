@@ -1,0 +1,51 @@
+
+
+<div class="wrapper">
+
+
+
+
+    <div class="page-title " style="background:#f5f3f0">
+    <div class="container">
+    <div class="inner">
+    <h1>Témoignages</h1>
+    <ul id="" class="breadcrumb"><li class="item"><a href="https://demo.zantetheme.com">Acceuil</a></li><li class="item-current item">Témoignages</li></ul> </div>
+    </div>
+    </div>
+    <br><br><br><br>
+  
+    <div class="container">
+   
+    <div class="row">
+<div  *ngFor="let dataItem of blogList">
+    
+    <div class="col-lg-4 col-sm-6">
+    <div class="testimonial-item">
+    <div class="review">
+    <h3>{{dataItem.Descript}}</h3>
+    <div class="rating">
+    <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i> </div>
+    <p>{{dataItem.Note}}
+    </p>
+    </div>
+    <div class="author">
+    <img src="/assets/images/blogeurs/{{dataItem.Photo}}" alt="Ina Aldrich" width="80" height="80">
+    <div class="author-info">
+    <h5>{{dataItem.Prenom}} {{dataItem.Nom}}</h5>
+    <span class="author-loacation">{{dataItem.Pays}}</span>
+    </div>
+    </div>
+    </div>
+     </div>
+    
+     </div>
+    </div>
+
+    </div>
+   
+    
+    
+    
+    
+    </div>
+    

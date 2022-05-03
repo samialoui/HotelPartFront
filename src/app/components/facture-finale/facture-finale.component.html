@@ -18,24 +18,24 @@
     <div class="eb-stepline-progress-bar"></div>
     </div>
     <div class="eb-stepline-dot"></div>
-    <div class="text-center bs-wizard-stepnum">Search</div>
-    <div class="bs-wizard-info text-center">Choose your favorite room</div>
+    <div class="text-center bs-wizard-stepnum">Recherche</div>
+    <div class="bs-wizard-info text-center">Choisissez votre chambre préférée</div>
     </div>
     <div class="eb-stepline-step completed">
     <div class="eb-stepline-progress">
     <div class="eb-stepline-progress-bar"></div>
     </div>
     <div class="eb-stepline-dot"></div>
-    <div class="text-center bs-wizard-stepnum">Booking</div>
-    <div class="bs-wizard-info text-center">Enter your booking details</div>
+    <div class="text-center bs-wizard-stepnum">Réservation</div>
+    <div class="bs-wizard-info text-center">Entrez les détails de votre réservation</div>
     </div>
     <div class="eb-stepline-step completed">
     <div class="eb-stepline-progress">
     <div class="eb-stepline-progress-bar"></div>
     </div>
     <div class="eb-stepline-dot"></div>
-    <div class="text-center bs-wizard-stepnum">Checkout</div>
-    <div class="bs-wizard-info text-center">Use your preferred payment method</div>
+    <div class="text-center bs-wizard-stepnum">Vérifier</div>
+    <div class="bs-wizard-info text-center">Utilisez votre mode de paiement préféré</div>
     </div>
     <div class="eb-stepline-step completed active">
     <div class="eb-stepline-progress">
@@ -43,80 +43,76 @@
     </div>
     <div class="eb-stepline-dot"></div>
     <div class="text-center bs-wizard-stepnum">Confirmation</div>
-    <div class="bs-wizard-info text-center">Receive a confirmation email</div>
+    <div class="bs-wizard-info text-center">Recevoir un email de confirmation</div>
     </div>
     </div>
     </div>
     <div id="thankyou-page" class="thankyou-page">
-    <div class="eb-alert eb-alert-success eb-alert-icon mb50" role="alert"> Your booking has been submitted successfully. We just sent you a confirmation email to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="96e5f7f7fbffb8f7faf9e3ffd6f1fbf7fffab8f5f9fb">[email&#160;protected]</a> </div>
+    <div class="eb-alert eb-alert-success eb-alert-icon mb50" role="alert"> Votre réservation a été soumise avec succès. Nous venons de vous envoyer un e-mail de confirmation à <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="96e5f7f7fbffb8f7faf9e3ffd6f1fbf7fffab8f5f9fb">[email&#160;protégé]</a> </div>
     <div class="eb-printable eb-thank-details">
     <div class="eb-hotel-logo eb-only-printable">
     <img src="https://demo.zantetheme.com/wp-content/uploads/2019/09/logo_footer-2.png" height='20px'> </div>
-    <h4 class="title">Booking Details</h4>
+    <h4 class="title">Les détails de réservation</h4>
     <ul>
     <li>
     <span>Transaction ID</span>
     <strong>485844841</strong>
     </li>
     <li>
-    <span>Full Name</span>
-    <strong>sami aloui</strong>
+    <span>Nom Complet</span>
+    <strong>{{Prenom}} {{Nom}}</strong>
     </li>
     <li>
     <span>Email</span>
-    <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="403321212d296e212c2f352900272d21292c6e232f2d">[email&#160;protected]</a></strong>
+    <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="403321212d296e212c2f352900272d21292c6e232f2d">{{Email}}</a></strong>
     </li>
     <li>
-    <span>Phone</span>
-    <strong>+21624760337</strong>
+    <span>Téléphone</span>
+    <strong>{{NumTele}}</strong>
     </li>
     <li>
-    <span>Address</span>
-    <strong> cité wahat tunis 45 rue khaled ibn elwalid, 2045, tunis, Tunisie </strong>
+    <span>Adresse</span>
+    <strong> {{Adress}} </strong>
     </li>
     <li>
-    <span>Room</span>
-    <strong>King Room</strong>
+    <span>Chambre</span>
+    <strong>{{Adress}}</strong>
     </li>
     <li>
-    <span>Branch</span>
-    <strong>Zante UK</strong>
+    <span>Arrivée/Départ</span>
+    <strong>{{dateArr}}, à partir de {{heureArr}} &nbsp; →&nbsp; {{dateDep}}, jusqu'à {{heureDep}}</strong>
     </li>
     <li>
-    <span>Check In/Out</span>
-    <strong>15/04/2022, from 11:00 am &nbsp; → &nbsp; 16/04/2022, until 10:00 am</strong>
-    </li>
-    <li>
-    <span>Guests</span>
+    <span>Invitées</span>
     <strong>
-    1 Adults, 1 Children </strong>
+    {{nbPersonne}} Personnes </strong>
     </li>
     <li>
-    <span>Arrival</span>
-    <strong>10:00 - 11:00</strong>
+    <span>Arrivée</span>
+    <strong>{{heureArr}} - {{heureDep}} </strong>
     </li>
     <li>
     <span>Payment</span>
-    <strong>Booking Request</strong>
+    <strong>Demande de réservation</strong>
     </li>
     <li>
-    <span>Additional Services</span>
+    <span>Des services supplémentaires</span>
     <strong>
     Massage &#038; Spa </strong>
     </li>
     <li>
-    <span>Requests</span>
-    <strong>nothing</strong>
+    <span>Demandes</span>
+    <strong>demandeSpecial</strong>
     </li>
     <li>
-    <span>Total Price</span>
+    <span>Prix total</span>
     <strong>
-    €234 </strong>
+    {{PrixTotal}} </strong>
     </li>
     </ul>
     </div>
     <div class="thankyou-buttons">
-    <a class="btn eb-btn btn-light print-booking-details" onClick="window.print()">Print Booking Details</a>
+    <a class="btn eb-btn btn-light print-booking-details" onClick="window.print()">Imprimer les détails de la réservation</a>
     </div>
     </div>
     <div class="clearfix"></div>
