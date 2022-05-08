@@ -48,50 +48,47 @@
     <div class="eb-widget eb-search-form">
     <h2 class="title">Les détails de réservation</h2>
     <div class="inner">
-      <form id="search_form" class="booking-search-form">
-      <div class="">
-        <div class="form-group">
-          <span class="form-label">Arrivée</span>
-           <input class="form-control" type="date"  required #arrive >
-           
-         </div> 
-      </div>
-      <div class="">
-        <div class="form-group">
-          <span class="form-label">Départ</span>
-            <input class="form-control" type="date" required #depart>     
-       </div>
-      </div>
-  
-      <div class="">
-        <div class="form-group"> 
-          <span class="form-label">Adultes</span> 
-          <select class="form-control"   (change)="selectAdult($event)">
-              <option value="1">1</option>
-               <option value="2">2</option>
-                <option value="3">3</option>
-               </select>
-                    <span class="select-arrow">
-                    </span>
-                     
-           </div> 
-      </div>
-  
-      <div class="">
-        <div class="form-group"> 
-          <span class="form-label">Enfants</span> 
-          <select class="form-control"   (change)="selectEnfant($event)">
-              <option value="0">0</option>
-               <option value="1">1</option>
-                <option value="2">2</option>
-               </select>
-                    <span class="select-arrow">
-                    </span>
-                     
-           </div> 
-      </div>
-      </form>
-      </div>
+    <form id="search_form" class="booking-search-form">
+    <div class="">
+    <label for="eagle_booking_datepicker">Arrivée/Départ</label>
+    <input id="eagle_booking_datepicker" type="text" class="form-control eagle-booking-datepicker" placeholder="Arrivée &nbsp;&nbsp;→&nbsp;&nbsp; Départ" value="14/04/2022   →   10/05/2022" autocomplete="off" readonly>
+    <input id="eagle_booking_checkin" type="hidden" name="">
+    <input id="eagle_booking_checkout" type="hidden" name="">
+    </div>
+    <div class="">
+    <label for="eagle_booking_guests">Invitées</label>
+    <div class="eb-guestspicker">
+    <div class="form-control guestspicker">
+      Invitées <span class="gueststotal"></span>
+    </div>
+    <div class="eb-guestspicker-content">
+    <div class="guests-buttons">
+    <div class="description">
+    <label>Adultes</label>
+    <div class="ages">Ages 18+ </div>
+    </div>
+    <div class="guests-button">
+    <div class="minus"></div>
+    <input type="text" id="eagle_booking_adults" name="eb_adults" class="booking-guests" value="1" min="1" max="4">
+    <div class="plus"></div>
+    </div>
+    </div>
+    <div class="guests-buttons">
+    <div class="description">
+    <label>Enfant</label>
+    <div class="ages">Ages 4 - 18</div>
+    </div>
+    <div class="guests-button">
+    <div class="minus"></div>
+    <input type="text" id="eagle_booking_children" name="eb_children" class="booking-guests" value="2" min="0" max="4">
+    <div class="plus"></div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </form>
+    </div>
     </div>
     <div class="eb-widget eb-price-range">
     <h2 class="title">Prix </h2>
@@ -187,9 +184,9 @@
     </span>
     </span>
     </div>
-    <div >
-    <div  *ngFor="let dataItem of chambList" >
-    <div  class="room-list-item" >
+    <div id="eagle_booking_rooms_list">
+    <div id="eagle_booking_search_results" *ngFor="let dataItem of chambListSimple" >
+    <div id="eb-search-room-937" class="room-list-item" >
     <div class="room-list-item-grid">
     <figure>
     <a href="https://demo.zantetheme.com/rooms/deluxe-room/">
@@ -244,7 +241,7 @@
     <input type="hidden" name="eb_adults" value="1">
     <input type="hidden" name="eb_children" value="2">
     <button class="eb-btn btn" name="submit" type="submit">
-    <a style="color: white;" (click)="SauvChambre(dataItem.ChambreId,dataItem.PrixNuit,dataItem.TypeChamb,arrive,depart)">Réserver Maintenant</a>
+    <a style="color: white;" href="/etape2-res">Réserver Maintenant</a>
     <span class="total-price-text">For <span class="price-currency">$</span><span class="price-amount">{{dataItem.PrixNuit}}</span> </span>
     </button>
     </form>

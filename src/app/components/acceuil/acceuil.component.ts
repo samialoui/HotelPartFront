@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
 
@@ -8,8 +8,13 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./acceuil.component.css']
 })
 export class AcceuilComponent implements OnInit {
+ 
+  nbEnfant: string = "";
+  nbAdult: string = "";
   bebe : any = "";
   adult : any = "";
+
+  total: any;
 
   ServiceList : any;
   chamb1 : any;
@@ -41,7 +46,41 @@ export class AcceuilComponent implements OnInit {
       //this.ChambreListWithoutFilter=data;
     });
   }
-
+  SauvChambre1(id:any,prix:any,type:any){
+    localStorage.clear();
+    localStorage.setItem("idChambre",id);
+    localStorage.setItem("prixChambre",prix);
+    localStorage.setItem("typeChambre",type);
+    this.route.navigate(["/chambre-favore"]);
+  }
+  SauvChambre2(id:any,prix:any,type:any){
+    localStorage.clear();
+    localStorage.setItem("idChambre",id);
+    localStorage.setItem("prixChambre",prix);
+    localStorage.setItem("typeChambre",type);
+    this.route.navigate(["/chambre-favore"]);
+  }
+  SauvChambre3(id:any,prix:any,type:any){
+    localStorage.clear();
+    localStorage.setItem("idChambre",id);
+    localStorage.setItem("prixChambre",prix);
+    localStorage.setItem("typeChambre",type);
+    this.route.navigate(["/chambre-favore"]);
+  }
+  SauvChambre4(id:any,prix:any,type:any){
+    localStorage.clear();
+    localStorage.setItem("idChambre",id);
+    localStorage.setItem("prixChambre",prix);
+    localStorage.setItem("typeChambre",type);
+    this.route.navigate(["/chambre-favore"]);
+  }
+  SauvChambre5(id:any,prix:any,type:any){
+    localStorage.clear();
+    localStorage.setItem("idChambre",id);
+    localStorage.setItem("prixChambre",prix);
+    localStorage.setItem("typeChambre",type);
+    this.route.navigate(["/chambre-favore"]);
+  }
   getChabmre1(){
     this.service.getChambPrice(this.chambre1).subscribe(data=>{
       this.chamb1 = data;
@@ -68,16 +107,30 @@ export class AcceuilComponent implements OnInit {
     });
   }
 
-  SauvInvite(total:any,arrive:any,depart:any){
-    if(total.textContent != 1){
+  selectAdult (event: any) {
+    //update the ui
+    this.nbAdult = event.target.value;
+  }
+  selectEnfant (event: any) {
+    //update the ui
+    this.nbEnfant = event.target.value;
+  }
+
+  SauvInvite(arrive:any,depart:any){
+     this.total = Number(this.nbAdult) + Number(this.nbEnfant);
+    if(this.total != 0){
     localStorage.clear();
     
     localStorage.setItem("arrivée",arrive.value);
     localStorage.setItem("départ",depart.value);
 
-    localStorage.setItem('nbInvitee', total.textContent);
+    localStorage.setItem('nbInvitee', this.total);
+    localStorage.setItem('nbEnfant', this.nbEnfant);
+    localStorage.setItem('nbAdult', this.nbAdult);
     this.route.navigate(["/etape1-res"]);
-    }
+    /*@Input() redirectTo: string = "/etape1-res";
+    window.location.assign(this.redirectTo);*/
+        }
     else{
       alert("S'il vous plait ,vous devez choisir la date et le nombre de visiteurs");
     }

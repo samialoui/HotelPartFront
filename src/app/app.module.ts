@@ -35,7 +35,15 @@ import { ShowOffresComponent } from './partie-admin/offres/show-offres/show-offr
 import { RoomsComponent } from './components/rooms/rooms.component';
 import { AvisComponent } from './components/avis/avis.component';
 import { Rooms2Component } from './components/rooms2/rooms2.component';
+import { ChsimpleComponent } from './components/chsimple/chsimple.component';
+import { ChdoubleComponent } from './components/chdouble/chdouble.component';
+import { ChtrippleComponent } from './components/chtripple/chtripple.component';
+import { FavroomsComponent } from './components/favrooms/favrooms.component';
+import { ChquadripleComponent } from './components/chquadriple/chquadriple.component';
+import { ChquintipleComponent } from './components/chquintiple/chquintiple.component';
 
+/*import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';*/
 
 
 
@@ -50,6 +58,13 @@ const appRoute: Routes = [
   {path: 'facture', component: FactureFinaleComponent},
   {path: 'rooms', component: RoomsComponent},
   {path: 'rooms2', component: Rooms2Component},
+  {path: 'chambre-simple', component: ChsimpleComponent},
+  {path: 'chambre-double', component: ChdoubleComponent},
+  {path: 'chambre-tripple', component: ChtrippleComponent},
+  {path: 'chambre-quadruple', component: ChquadripleComponent},
+  {path: 'chambre-quintuple', component: ChquintipleComponent},
+
+  {path: 'chambre-favore', component: FavroomsComponent},
   /** partie admin */
   {path: 'adminNav', component: NavbarAdminComponent},
   {path: 'admin-acceuil', component: AcceuilAdminComponent},
@@ -95,6 +110,11 @@ const appRoute: Routes = [
     RoomsComponent,
     AvisComponent,
     Rooms2Component,
+    ChsimpleComponent,
+    ChdoubleComponent,
+    ChtrippleComponent,
+    FavroomsComponent,
+ 
 
   
     
@@ -105,6 +125,8 @@ const appRoute: Routes = [
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    //BrowserAnimationsModule,
+   // ToastrModule.forRoot(),
     HttpClientModule,
     RouterModule.forRoot(appRoute)
   ],

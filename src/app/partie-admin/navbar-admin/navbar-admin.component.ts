@@ -16,6 +16,7 @@ export class NavbarAdminComponent implements OnInit {
   }
   deconnexion(){
   localStorage.setItem("typeUser","");
+  localStorage.setItem("verif","");
   this.route.navigate(["/"]);
 
   }

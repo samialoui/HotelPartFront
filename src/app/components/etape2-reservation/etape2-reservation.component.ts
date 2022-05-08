@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
 
@@ -8,8 +9,19 @@ import { SharedService } from 'src/app/services/shared.service';
   styleUrls: ['./etape2-reservation.component.css']
 })
 export class Etape2ReservationComponent implements OnInit {
+  @Input() redirectTo: string = "/etape3-res";
+  @Input() actualiser: string = "/etape2-res";
+  form!: FormGroup;
+  websiteList: any = [
+    { id: 1, name: 'massage & Spa', prix:'60 $', description:'     60 $ (Chambre / Voyage)' },
+    { id: 2, name: 'Prise en charge à laéroport', prix:'24 $', description:'     24 $ (Chambre / Voyage)' },
+    { id: 3, name: 'Visite guidée', prix:'36 $', description:'     36 $ (Adultes + Enfants / Voyage)' }
+  ];
 
+  
   connecte: Boolean = false;
+  verifCode : boolean = false;
+ 
 
   Details : any;
   lastClient : any;
@@ -19,8 +31,45 @@ export class Etape2ReservationComponent implements OnInit {
   heureArr:any;
   heureDep:any;
   totalPrix:any;
+  Chamb: any;
 
-  constructor( private service : SharedService, private route:Router) { }
+  alertCoupon: string ="";
+  alertDemande: string ="";
+
+  constructor( private service : SharedService, private route:Router,private formBuilder: FormBuilder) {
+    this.form = this.formBuilder.group({
+      website: this.formBuilder.array([], [Validators.required])
+    })
+  }
+
+
+      
+  onCheckboxChange(e:any) {
+    const website: FormArray = this.form.get('website') as FormArray;
+   
+    if (e.target.checked) {
+      website.push(new FormControl(e.target.value));
+      if(e.target.value == "massage") {
+      localStorage.setItem("massageeee","60");
+      }
+      if(e.target.value == "aireport") {
+        localStorage.setItem("aireportttt","24");
+        }
+        if(e.target.value == "guide") {
+          localStorage.setItem("guideee","36");
+          }
+    } else {
+      localStorage.setItem("massageeee","");
+   
+      localStorage.setItem("aireportttt","");
+    
+        localStorage.setItem("guideee","");
+    }
+  }
+     
+  submit(){
+    console.log();
+  }
   Nom!:string;
   Prenom!:string;
   Age!:string;
@@ -45,12 +94,20 @@ export class Etape2ReservationComponent implements OnInit {
   localStorage.setItem("prixTotal",this.totalPrix+".104");
   }
 
-  addClient(nom:any,prenom:any,age:any,email:any,numTele:any,adress:any,password:any,ville:any,codePostal:any){
-    if(localStorage.getItem('serviceMassage')=="" && localStorage.getItem('serviceAireport')=="" && localStorage.getItem('serviceGuide')==""){
-      alert("Vous devez selectionner service avant");
+
+
+  
+
+  onChangeMassage(event:any){
+    const val = event.target.checked;
+    if(val){
+    localStorage.setItem("valMassage","60");
     }
-    else
-    {
+
+  }
+
+
+  addClient(nom:any,prenom:any,age:any,email:any,numTele:any,adress:any,password:any,ville:any,codePostal:any){
     var val = {Nom:nom.value,
       Prenom:prenom.value,
       Age:age.value,
@@ -65,11 +122,10 @@ export class Etape2ReservationComponent implements OnInit {
     }); 
     this.connecte = true;
   }
-  }
 
   SauvinfoClient(id: any,nom: any,prenom: any,email: any,numtele:any,adress:any){
-    if(localStorage.getItem('serviceMassage')==null || localStorage.getItem('serviceAireport')==null || localStorage.getItem('serviceGuide')==null){
-      alert("Vous avez manque d'authentifier ou bien de saisir le coupon et la demande particuliére!!");
+    if(localStorage.getItem("coupon") == ""){
+      alert("Vous avez manque d'authentifier ou bien de vérifier le coupon!!");
     }
     else
     {
@@ -79,7 +135,7 @@ export class Etape2ReservationComponent implements OnInit {
     localStorage.setItem("Email",email);
     localStorage.setItem("NumTele",numtele);
     localStorage.setItem("Adress",adress);
-    this.route.navigate(["/etape3-res"]);
+    window.location.assign(this.redirectTo);
 
     }
 
@@ -87,7 +143,8 @@ export class Etape2ReservationComponent implements OnInit {
 
   getChambre(){
     var idChamb = localStorage.getItem("idChambre");
-    this.service.getChambre(idChamb).subscribe(data=>{
+    this.Chamb = idChamb;
+    this.service.getChambre(this.Chamb).subscribe(data=>{
       this.Details = data;
     })
     
@@ -127,16 +184,26 @@ export class Etape2ReservationComponent implements OnInit {
     this.totalPrix=  total;
   }
 
-  saveInfo(demande:any,coupon:any,massage:any,aireport:any,guide:any){
-    if(localStorage.getItem("heureArr")=="" && localStorage.getItem("heureDep")==""){
-      alert("Vous avez manque de selectionner le temps d'arrivée et de départ!!")
+  saveInfo(demande:any,coupon:any){
+   // var Massage =  localStorage.getItem('serviceMassage');
+   // var Aireport = localStorage.getItem('serviceAireport');
+   // var Guide = localStorage.getItem('serviceGuide');
+    var heureArr = localStorage.getItem("heureArr");
+    var heureDep = localStorage.getItem("heureDep");
+   // var Demande = localStorage.getItem("specialDemande");
+    if(  (heureArr == "" && heureDep =="") || coupon.value == "" || demande.value == "" || this.connecte ==false ){
+      this.alertCoupon = "Veuillez saisir le coupon, c'est un champ obligatoire";
+      alert("Vous avez manque d'authentifier ou bien de sélectionner le temps d'arrivée/départ !!");
     }
     else{
-    localStorage.setItem("serviceMassage",massage.value);
-    localStorage.setItem("serviceAireport",aireport.value);
-    localStorage.setItem("serviceGuide",guide.value);
+    //localStorage.setItem("serviceMassage",massage.value);
+    //localStorage.setItem("serviceAireport",aireport.value);
+    //localStorage.setItem("serviceGuide",guide.value);
     localStorage.setItem("specialDemande",demande.value);
     localStorage.setItem("coupon",coupon.value);
+    this.verifCode = true;
+    alert("le coupon a été vérifié avec succée");
+    window.location.assign(this.actualiser);
     }
   
   }

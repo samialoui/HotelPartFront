@@ -50,42 +50,47 @@
     <div class="inner">
     <form id="search_form" class="booking-search-form">
     <div class="">
-    <label for="eagle_booking_datepicker">Arrivée/Départ</label>
-    <input id="eagle_booking_datepicker" type="text" class="form-control eagle-booking-datepicker" placeholder="Arrivée &nbsp;&nbsp;→&nbsp;&nbsp; Départ" value="{{dateArr}}   →   {{dateDep}}" autocomplete="off" readonly>
-    <input id="eagle_booking_checkin" type="hidden" name="">
-    <input id="eagle_booking_checkout" type="hidden" name="">
+      <div class="form-group">
+        <span class="form-label">Arrivée</span>
+         <input class="form-control" type="date" value="{{dateArr}}" required [(ngModel)]="dateArr" >
+         
+       </div> 
     </div>
     <div class="">
-    <label for="eagle_booking_guests">Invités</label>
-    <div class="eb-guestspicker">
-    <div class="form-control guestspicker">
-      Invités <span class="gueststotal">{{nbInvt}}</span>
+      <div class="form-group">
+        <span class="form-label">Départ</span>
+          <input class="form-control" type="date" value="{{dateDep}}" required [(ngModel)]="dateDep">     
+     </div>
     </div>
-    <div class="eb-guestspicker-content">
-    <div class="guests-buttons">
-    <div class="description">
-    <label>Adults</label>
-    <div class="ages">Ages 18+ </div>
+
+    <div class="">
+      <div class="form-group"> 
+        <span class="form-label">Adultes</span> 
+        <select class="form-control"   (change)="selectAdult($event)">
+          <option value="">{{adultes}}</option>
+            <option value="1">1</option>
+             <option value="2">2</option>
+              <option value="3">3</option>
+             </select>
+                  <span class="select-arrow">
+                  </span>
+                   
+         </div> 
     </div>
-    <div class="guests-button">
-    <div class="minus"></div>
-    <input type="text" id="eagle_booking_adults" name="eb_adults" class="booking-guests" value="1" min="1" max="4">
-    <div class="plus"></div>
-    </div>
-    </div>
-    <div class="guests-buttons">
-    <div class="description">
-    <label>Enfant</label>
-    <div class="ages">Ages 4 - 18</div>
-    </div>
-    <div class="guests-button">
-    <div class="minus"></div>
-    <input type="text" id="eagle_booking_children" name="eb_children" class="booking-guests" value="2" min="0" max="4">
-    <div class="plus"></div>
-    </div>
-    </div>
-    </div>
-    </div>
+
+    <div class="">
+      <div class="form-group"> 
+        <span class="form-label">Enfants</span> 
+        <select class="form-control"   (change)="selectEnfant($event)">
+          <option value="">{{enfants}}</option>
+            <option value="0">0</option>
+             <option value="1">1</option>
+              <option value="2">2</option>
+             </select>
+                  <span class="select-arrow">
+                  </span>
+                   
+         </div> 
     </div>
     </form>
     </div>
@@ -189,9 +194,9 @@
     </span>
     </span>
     </div>
-    <div id="eagle_booking_rooms_list">
-    <div id="eagle_booking_search_results" *ngFor="let dataItem of chambList" >
-    <div id="eb-search-room-937" class="room-list-item" >
+    <div >
+    <div  *ngFor="let dataItem of chambList" >
+    <div  class="room-list-item" >
     <div class="room-list-item-grid">
     <figure>
     <a href="https://demo.zantetheme.com/rooms/deluxe-room/">
@@ -238,15 +243,14 @@
     </div>
     <div class="room-price-details">
     <div class="room-price-search">
-    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{dataItem.PrixNuit}}</span></strong></span><span class="per-night-text"> per night</span></div> <form method="post" action="https://demo.zantetheme.com/booking/">
+    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{dataItem.PrixNuit}}</span></strong></span><span class="per-night-text"> pour nuit</span></div> <form method="post" action="https://demo.zantetheme.com/booking/">
     <input type="hidden" name="eb_room_id" value="937">
     <input type="hidden" name="eb_checkin" value="04/14/2022">
     <input type="hidden" name="eb_checkout" value="05/10/2022">
     <input type="hidden" name="eb_guests" value="1">
     <input type="hidden" name="eb_adults" value="1">
     <input type="hidden" name="eb_children" value="2">
-    <button class="eb-btn btn" name="submit" type="submit">
-    <a style="color: white;" href="/etape2-res" (click)="SauvChambre(dataItem.ChambreId,dataItem.PrixNuit,dataItem.TypeChamb)">Réserver Maintenant</a>
+    <button class="eb-btn btn" name="submit" type="submit" (click)="SauvChambre(dataItem.ChambreId,dataItem.PrixNuit,dataItem.TypeChamb)"><a style="color: white;">Réserver Maintenant</a> 
     <span class="total-price-text">Pour <span class="price-currency">$</span><span class="price-amount">{{dataItem.PrixNuit}}</span> </span>
     </button>
     </form>
@@ -319,8 +323,8 @@
     </div>
     </div>
     </main>
-    
-    <div class='buy-now left'><a href='https://1.envato.market/G5EjV' target='_blank' class='buy-now-btn'><i class='fa fa-shopping-cart' aria-hidden='true'></i></a><div class='ripple'></div></div>
+  
+
     <div id="back_to_top" class="right">
     <i class="fa fa-angle-up" aria-hidden="true"></i>
     </div>

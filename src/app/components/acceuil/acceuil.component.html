@@ -25,7 +25,66 @@
           <div class="wpb_wrapper">
             <div class="hbf half-over-slider">
     <div class="inner">
-    <form id="search-form" class="search-form"  method="get" target="">
+
+        <div id="booking" > 
+            <div class="section-center">
+             <div class="container">
+                  <div class="row"> 
+                 <div > 
+                         <form>
+                             <div class="row"> 
+                                <div class="col-md-2">
+                                       <div class="form-group">
+                                        <span class="form-label">Arrivée</span>
+                                         <input class="form-control" type="date" required #arrive>
+                                         
+                                       </div> 
+                                </div> 
+                                 <div class="col-md-2">
+                                         <div class="form-group">
+                                            <span class="form-label">Départ</span>
+                                              <input class="form-control" type="date" required #depart>
+                                               
+                                         </div>
+                                </div>
+                             
+                               <div class="col-md-2">
+                                   <div class="form-group"> 
+                                    <span class="form-label">Adultes</span> 
+                                    <select class="form-control"  (change)="selectAdult($event)">
+                                        <option value="1">1</option>
+                                         <option value="2">2</option>
+                                          <option value="3">3</option>
+                                         </select>
+                                              <span class="select-arrow">
+                                              </span>
+                                               
+                                     </div> 
+                                </div> 
+                                <div class="col-md-2">
+                                             <div class="form-group">
+                                                <span class="form-label">Enfants</span> 
+                                                  <select class="form-control"  (change)="selectEnfant($event)">
+                                                        <option value="0">0</option>
+                                                         <option value="1">1</option>
+                                                          <option value="2">2</option>
+                                                         </select>
+                                                          <span class="select-arrow"></span>
+                                                           
+                                             </div>
+                                </div> 
+                               <div class="col-md-4">  
+                                <span style="color: transparent;">Départ</span>         
+                                <div class="form-btn"> 
+                                   
+                                                         <button class="btn btn-success" (click)="SauvInvite(arrive,depart)">Voir les disponibilités</button>
+                                </div> 
+                                </div>
+                            </div>
+                                </form> 
+                </div> </div> </div> </div></div>
+
+    <!--<form id="search-form" class="search-form"  method="get" target="">
     <div class="row">
      <div class="col-md-4">
     <label for="eagle_booking_datepicker">Arrivée/Départ</label>
@@ -71,7 +130,7 @@
     </button>
     </div>
     </div>
-    </form>
+    </form>-->
     </div>
     </div>
     </div></div></div></div>
@@ -116,13 +175,13 @@
     <div class="first-col">
     <div class="room-item ">
     <figure class="room-image gradient-overlay overlay-opacity-02 slide-right-hover">
-    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{chamb1.PrixNuit}}</span></strong></span><span class="per-night-text"> / nuit</span></div> <a href="https://demo.zantetheme.com/rooms/deluxe-room/">
+    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{chamb1.PrixNuit}}</span></strong></span><span class="per-night-text"> / nuit</span></div> <a  (click)="SauvChambre1(chamb1.ChambreId,chamb1.PrixNuit,chamb1.TypeChamb)">
     <img src="/assets/images/chambres/{{chamb1.Photo}}" alt="Deluxe Room">
     </a>
     </figure>
     <div class="room-details">
     <h3 class="room-title">
-    <a href="https://demo.zantetheme.com/rooms/deluxe-room/">{{chamb1.TypeChamb}}</a>
+    <a (click)="SauvChambre1(chamb1.ChambreId,chamb1.PrixNuit,chamb1.TypeChamb)">{{chamb1.TypeChamb}}</a>
     </h3>
     <div class="room-services">
     <div class="dragscroll">
@@ -160,13 +219,13 @@
     <div class="second-col">
     <div class="room-item small-item">
     <figure class="room-image gradient-overlay overlay-opacity-02 slide-right-hover">
-    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{chamb2.PrixNuit}}</span></strong></span><span class="per-night-text"> / nuit</span></div> <a href="https://demo.zantetheme.com/rooms/single-room/">
+    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{chamb2.PrixNuit}}</span></strong></span><span class="per-night-text"> / nuit</span></div> <a (click)="SauvChambre2(chamb2.ChambreId,chamb2.PrixNuit,chamb2.TypeChamb)">
     <img src="/assets/images/chambres/{{chamb2.Photo}}" alt="Single Room">
     </a>
     </figure>
     <div class="room-details">
     <h3 class="room-title">
-    <a href="https://demo.zantetheme.com/rooms/single-room/">{{chamb2.TypeChamb}}</a>
+    <a (click)="SauvChambre2(chamb2.ChambreId,chamb2.PrixNuit,chamb2.TypeChamb)">{{chamb2.TypeChamb}}</a>
     </h3>
     <div class="room-services">
     <div class="dragscroll">
@@ -203,13 +262,13 @@
     </div>
     <div class="room-item small-item">
     <figure class="room-image gradient-overlay overlay-opacity-02 slide-right-hover">
-    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{chamb3.PrixNuit}}</span></strong></span><span class="per-night-text"> / nuit</span></div> <a href="https://demo.zantetheme.com/rooms/family-room/">
+    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{chamb3.PrixNuit}}</span></strong></span><span class="per-night-text"> / nuit</span></div> <a (click)="SauvChambre3(chamb3.ChambreId,chamb3.PrixNuit,chamb3.TypeChamb)">
     <img src="/assets/images/chambres/{{chamb3.Photo}}" alt="Family Room">
     </a>
     </figure>
     <div class="room-details">
     <h3 class="room-title">
-    <a href="https://demo.zantetheme.com/rooms/family-room/">{{chamb3.TypeChamb}}</a>
+    <a (click)="SauvChambre3(chamb3.ChambreId,chamb3.PrixNuit,chamb3.TypeChamb)">{{chamb3.TypeChamb}}</a>
     </h3>
     <div class="room-services">
     <div class="dragscroll">
@@ -240,13 +299,13 @@
     </div>
     <div class="room-item small-item">
     <figure class="room-image gradient-overlay overlay-opacity-02 slide-right-hover">
-    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{chamb4.PrixNuit}}</span></strong></span><span class="per-night-text"> / nuit</span></div> <a href="https://demo.zantetheme.com/rooms/king-room/">
+    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{chamb4.PrixNuit}}</span></strong></span><span class="per-night-text"> / nuit</span></div> <a (click)="SauvChambre4(chamb4.ChambreId,chamb4.PrixNuit,chamb4.TypeChamb)">
     <img src="/assets/images/chambres/{{chamb4.Photo}}" alt="King Room">
     </a>
     </figure>
     <div class="room-details">
     <h3 class="room-title">
-    <a href="https://demo.zantetheme.com/rooms/king-room/">{{chamb4.TypeChamb}}</a>
+    <a (click)="SauvChambre4(chamb4.ChambreId,chamb4.PrixNuit,chamb4.TypeChamb)">{{chamb4.TypeChamb}}</a>
     </h3>
     <div class="room-services">
     <div class="dragscroll">
@@ -286,13 +345,13 @@
     </div>
     <div class="room-item small-item">
     <figure class="room-image gradient-overlay overlay-opacity-02 slide-right-hover">
-    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{chamb5.PrixNuit}}</span></strong></span><span class="per-night-text"> / nuit</span></div> <a href="https://demo.zantetheme.com/rooms/honeymoon/">
+    <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{chamb5.PrixNuit}}</span></strong></span><span class="per-night-text"> / nuit</span></div> <a (click)="SauvChambre5(chamb5.ChambreId,chamb5.PrixNuit,chamb5.TypeChamb)">
     <img src="/assets/images/chambres/{{chamb5.Photo}}" alt="Honeymoon Room">
     </a>
     </figure>
     <div class="room-details">
     <h3 class="room-title">
-    <a href="https://demo.zantetheme.com/rooms/honeymoon/">{{chamb5.TypeChamb}}</a>
+    <a (click)="SauvChambre5(chamb5.ChambreId,chamb5.PrixNuit,chamb5.TypeChamb)">{{chamb5.TypeChamb}}</a>
     </h3>
     <div class="room-services">
     <div class="dragscroll">

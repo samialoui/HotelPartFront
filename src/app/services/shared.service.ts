@@ -111,6 +111,10 @@ getChambre(val : any){
   return this.http.get(this.APIUrl+'/chambre/getChambre/'+val);
 }
 
+getChambreById(val : any){
+  return this.http.get(this.APIUrl+'/chambre/getChambrebyId/'+val);
+}
+
 GetAllSaisonNames(): Observable<any[]>{
   return this.http.get<any>(this.APIUrl+'/Chambre/GetAllSaisonNames');
 }

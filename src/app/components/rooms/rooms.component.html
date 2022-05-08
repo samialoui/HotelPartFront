@@ -10,7 +10,7 @@
             <div class="room-list-item-grid">
             <figure>
             <a href="https://demo.zantetheme.com/rooms/deluxe-room/">
-            <span class="featured-room"><i class="fa fa-star"></i>Featured</span>
+            <span class="featured-room"><i class="fa fa-star"></i>Mis en exergue</span>
             <img src="/assets/images/chambres/{{dataItem.Photo}}" alt="Deluxe Room" loading="lazy" style="width: 100%; height: 100%">
             </a>
             </figure>
@@ -53,7 +53,7 @@
             </div>
             <div class="room-price-details">
             <div class="room-price-search">
-            <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{dataItem.PrixNuit}}</span></strong></span><span class="per-night-text"> per night</span></div> <form method="post" action="https://demo.zantetheme.com/booking/">
+            <div class="room-price"><span class="normal-price"><strong><span class="price-currency">$</span><span class="price-amount">{{dataItem.PrixNuit}}</span></strong></span><span class="per-night-text"> pour nuit</span></div> <form method="post" action="https://demo.zantetheme.com/booking/">
             <input type="hidden" name="eb_room_id" value="937">
             <input type="hidden" name="eb_checkin" value="04/14/2022">
             <input type="hidden" name="eb_checkout" value="05/10/2022">
@@ -61,7 +61,7 @@
             <input type="hidden" name="eb_adults" value="1">
             <input type="hidden" name="eb_children" value="2">
             <button class="eb-btn btn" name="submit" type="submit">
-            <a style="color: white;" href="/etape2-res">Réserver Maintenant</a>
+            <a style="color: white;" (click)="SauvChambre(dataItem.ChambreId,dataItem.PrixNuit,dataItem.TypeChamb)">Réserver Maintenant</a>
             <span class="total-price-text">For <span class="price-currency">$</span><span class="price-amount">{{dataItem.PrixNuit}}</span> </span>
             </button>
             </form>
@@ -74,46 +74,46 @@
             <div class="room-quick-details">
             <div id="availability-calendar-937"></div>
             <div class="room-services-list">
-            <h6 class="section-title">Included Services</h6>
+            <h6 class="section-title">Services inclus</h6>
             <div class="eb-g-3 eb-g-m-2 mt30">
             <div class="room-services-item">
             <i class="fa fa-wifi"></i>
             Wi-Fi </div>
             <div class="room-services-item">
             <i class="fa fa-female"></i>
-            Hair Dryer </div>
+            Sèche-cheveux </div>
             <div class="room-services-item">
             <i class="fa fa-bath"></i>
             Sauna </div>
             <div class="room-services-item">
             <i class="fa fa-cutlery"></i>
-            Breakfast </div>
+            Déjeuner </div>
             <div class="room-services-item">
             <i class="fa fa-coffee"></i>
-            Coffee Maker </div>
+            Machine à café </div>
             <div class="room-services-item">
             <i class="fa fa-glass"></i>
             Mini Bar </div>
             <div class="room-services-item">
             <i class="fa fa-mobile"></i>
-            Free-to-use Smartphone </div>
+            Smartphone gratuit </div>
             <div class="room-services-item">
             <i class="fa fa-television"></i>
-            Widescreen TV </div>
+            TV grand écran </div>
             <div class="room-services-item">
             <i class="fa fa-snowflake-o"></i>
-            Air Conditioner </div>
+            Climatiseur </div>
             </div>
             </div>
             <div class="room-services-list">
-            <h6 class="section-title">Additional Services</h6>
+            <h6 class="section-title">Des services supplémentaires</h6>
             <div class="eb-g-3 eb-g-m-2 mt30">
             <div class="room-services-item">
             <i class="fas fa-taxi"></i>
-            Airport Pickup </div>
+            Prise en charge à l'aéroport </div>
             <div class="room-services-item">
             <i class="fas fa-broom"></i>
-            Sightseeing Tour </div>
+            Visite guidée </div>
             <div class="room-services-item">
             <i class="fas fa-spa"></i>
             Massage &#038; Spa </div>

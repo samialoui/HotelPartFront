@@ -1,14 +1,18 @@
 
     <main>
         <div class="row">
+            <div class="colm-logo">
+                <img src="assets/images/admin.png" style="width: 35%; margin-left: 25%;" alt="Logo">
+                <h2> Cette interface est pour l'administrateur de l'hôtel.</h2>
+            </div>
             <div class="colm-form">
                 <h3>Connexion</h3>
                 <div class="form-container">
-                <input type="text" placeholder="Adresse e-mail ou numéro de téléphone" #login>
+                <input type="text" placeholder="Adresse e-mail ou numéro de téléphone" #email>
                     <input type="password" placeholder="Mot de passe" #password>
-                    <button class="btn-login" (click)="Connexion(login,password)"> <a href="/chambres" *ngIf="type== 'admin'" style="color: white;"></a>Connexion</button>
+                    <button class="btn-login" (click)="Connexion(email,password)">Connexion</button>
                     <a href="#">Mot de passe oublié ?</a>
-                    <button class="btn-new">Créer un nouveau compte</button>
+                   <!--<button class="btn-new">Créer un nouveau compte</button>-->
                 </div>
             
             </div>

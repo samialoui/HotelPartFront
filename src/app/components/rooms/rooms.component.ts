@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { SharedService } from 'src/app/services/shared.service';
 })
 export class RoomsComponent implements OnInit {
 
-  constructor( private service: SharedService) { }
+  constructor( private service: SharedService,private route: Router) { }
   ChambreList: any=[];
 
   ngOnInit(): void {
@@ -22,4 +23,11 @@ export class RoomsComponent implements OnInit {
     });
   }
 
+  SauvChambre(id:any,prix:any,type:any){
+    localStorage.clear();
+    localStorage.setItem("idChambre",id);
+    localStorage.setItem("prixChambre",prix);
+    localStorage.setItem("typeChambre",type);
+    this.route.navigate(["/chambre-favore"]);
+  }
 }

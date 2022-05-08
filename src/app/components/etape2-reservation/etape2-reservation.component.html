@@ -52,44 +52,64 @@
 
         <div class="eb-section eb-checkout-form">
             <h2 class="title">Des services supplémentaires</h2>
+          <!--<div class="inner">
+
+             <form [formGroup]="form"  (ngSubmit)="submit()">
+             
+        <div class="form-group">
+            <label for="website">Website:</label>
+            <div *ngFor="let web of websiteList">
+             
+                <input type="checkbox" [value]="web.name" (change)="onCheckboxChange($event)" />
+                {{web.name}} / {{  web.prix}}  /   {{     web.description}}
+              
+            </div>
+        </div>
+         
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+    
+            </div>-->
+       
             <div class="inner">
-            <div class="additional-service-item" data-service-id="972">
-            <input type="checkbox" data-id="972" data-amount="50" data-aplied-taxes="2" value="60" #massage>
-            <div class="additional-service-details">
-            <span class="eb-booking-service-title"><strong>Massage &#038; Spa</strong></span>
-            <span>60 $ (Chambre / Voyage)</span>
-            <span class="eb-booking-service-price"><strong>60 $</strong></span>
-            </div>
-            <span class="toggle-service-full-details"> <i class="far fa-question-circle"></i> </span> <div class="additional-service-full-details"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </div> </div>
-            <div class="additional-service-item" data-service-id="948">
-            <input type="checkbox" data-id="948" data-amount="20" data-aplied-taxes="2" value="24" #aireport>
-            <div class="additional-service-details">
-            <span class="eb-booking-service-title"><strong>Prise en charge à l'aéroport</strong></span>
-            <span>24 $ (Chambre / Voyage)</span>
-            <span class="eb-booking-service-price"><strong>24 $</strong></span>
-            </div>
-            <span class="toggle-service-full-details"> <i class="far fa-question-circle"></i> </span> <div class="additional-service-full-details"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </div> </div>
-            <div class="additional-service-item" data-service-id="2054">
-            <input type="checkbox" data-id="2054" data-amount="30" data-aplied-taxes="2" value="36" #guide>
-            <div class="additional-service-details">
-            <span class="eb-booking-service-title"><strong>Visite guidée</strong></span>
-            <span>18 $ (Adultes + Enfants / Voyage)</span>
-            <span class="eb-booking-service-price"><strong>36 $</strong></span>
-            </div>
-            <span class="toggle-service-full-details"> <i class="far fa-question-circle"></i> </span> <div class="additional-service-full-details"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </div> </div>
-            <input type="hidden" id="eb_services_amount" value="0">
-            </div>
-            </div>
+                <div class="additional-service-item" data-service-id="972">
+                <input type="checkbox" data-id="972" data-amount="50" data-aplied-taxes="2" value="60" #massage>
+                <div class="additional-service-details">
+                <span class="eb-booking-service-title"><strong>Massage &#038; Spa</strong></span>
+                <span>60 $ (Chambre / Voyage)</span>
+                <span class="eb-booking-service-price"><strong>60 $</strong></span>
+                </div>
+                <span class="toggle-service-full-details"> <i class="far fa-question-circle"></i> </span> <div class="additional-service-full-details"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </div> </div>
+                <div class="additional-service-item" data-service-id="948">
+                <input type="checkbox" data-id="948" data-amount="20" data-aplied-taxes="2" value="24" #aireport>
+                <div class="additional-service-details">
+                <span class="eb-booking-service-title"><strong>Prise en charge à l'aéroport</strong></span>
+                <span>24 $ (Chambre / Voyage)</span>
+                <span class="eb-booking-service-price"><strong>24 $</strong></span>
+                </div>
+                <span class="toggle-service-full-details"> <i class="far fa-question-circle"></i> </span> <div class="additional-service-full-details"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </div> </div>
+                <div class="additional-service-item" data-service-id="2054">
+                <input type="checkbox" data-id="2054" data-amount="30" data-aplied-taxes="2" value="36" #guide>
+                <div class="additional-service-details">
+                <span class="eb-booking-service-title"><strong>Visite guidée</strong></span>
+                <span>18 $ (Adultes + Enfants / Voyage)</span>
+                <span class="eb-booking-service-price"><strong>36 $</strong></span>
+                </div>
+                <span class="toggle-service-full-details"> <i class="far fa-question-circle"></i> </span> <div class="additional-service-full-details"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </div> </div>
+                <input type="hidden" id="eb_services_amount" value="0">
+                </div>
+                </div>        
+            
 
 
 
 <!--login logout-->
     <div id="eb_billing_tabs" class="eb-tabs">
         <div class="eb-tabs-titles">
-        <div class="eb-tab" data-tab="guest">
+        <!--<div class="eb-tab" data-tab="guest">
         <input class="tab-radio" id="eb_guest" name="eb_billing_tab" type="radio" value="guest">
         <label for="eb_guest" class="radio-label">Commander en tant qu'invité</label>
-        </div>
+        </div>-->
         <div class="eb-tab" data-tab="signup">
         <input class="tab-radio" id="eb_signup" name="eb_billing_tab" type="radio" value="signup">
         <label for="eb_signup" class="radio-label">Créer un nouveau compte</label>
@@ -100,7 +120,7 @@
         </div>
         </div>
         <div id="eb_billing_tabs_content" class="eb-tabs-content">
-        <div class="eb-tab-content guest" data-tab="guest">
+          <!--<div class="eb-tab-content guest" data-tab="guest">
         <div class="eb-g-2 eb-g-m-1">
         <div class="eb-form-col">
         <input type="text" id="eb_guest_first_name" class="form-control">
@@ -132,8 +152,8 @@
         <label>Code Postal</label>
         </div>
         </div>
-    </div>
-        
+    </div>-->
+         
         <div class="eb-tab-content signup" data-tab="signup">
         <form class="eb-form-col" > <!--id="eb_user_signup_booking_form" action="" method="POST" -->
         <div id="eb_user_sign_up_response" class="eb-alert eb-alert-small mb20" role="alert" style="display:none">
@@ -176,6 +196,7 @@
         <label>Code Postal</label>
         </div>
         </div>
+        <br> 
         <button  class="btn btn-success" (click)="addClient(nom,prenom,age,email,num,adress,password,ville,code)"  type="submit">Sauvgarder</button>
         </form>
        
@@ -208,7 +229,9 @@
             <h5 class="title">Demandes spéciales</h5>
             <br>
             <textarea name="eb_user_requests" id="eagle_booking_requests" class="form-control" rows="6" #demande placeholder="Faites-nous savoir si vous avez des demandes spéciales."></textarea>
-            </div>
+           
+      
+        </div>
         <!--Arrival time-->
         <br><br>
         <div class="form-panel">
@@ -243,16 +266,17 @@
             </div>
             <div id="eb_coupon_code_group" class="eb-g-5-2">
             <div>
-            <input name="eb_coupon" type="text" id="eb_coupon" class="form-control" style="margin-bottom: 0;" #coupon placeholder="Entrez le code promo si vous avez un">
+            <input name="eb_coupon" type="text" id="eb_coupon" class="form-control" style="margin-bottom: 0;" required #coupon placeholder="Entrez le code promo si vous avez un">
             <input type="hidden" id="eb_coupon_code" name="eb_coupon_code">
             <input type="hidden" id="eb_coupon_value">
             </div>
             <div>
-            <button  class="btn btn-success" (click)="saveInfo(demande,coupon,massage,aireport,guide)" >
-            <span class="eb-btn-text"><a href="/etape2-res" style="color: white;"  >Valider le code</a></span>
+            <button  class="btn btn-success" (click)="saveInfo(demande,coupon)" >
+            <span class="eb-btn-text">Valider le code</span>
             </button>
             </div>
             </div>
+            <span style="color: red;"> {{alertCoupon}}</span>
             </div>
 </div>
             <div class="col-md-3" >

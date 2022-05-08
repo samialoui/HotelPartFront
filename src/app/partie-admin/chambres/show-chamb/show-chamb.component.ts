@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { SharedService } from 'src/app/services/shared.service';
 export class ShowChambComponent implements OnInit {
 
   p:number = 1;
-  constructor( private service: SharedService) { }
+  constructor( private service: SharedService, private route:Router) { }
   ChambreList: any=[];
   Modaltitle!:string;
   ActivateAddEditChambComp: boolean=false;
@@ -18,7 +19,10 @@ export class ShowChambComponent implements OnInit {
   NumChambreFilter:string="";
   ChambreListWithoutFilter:any=[];
 
+  type:any;
   ngOnInit(): void {
+   
+    this.type= localStorage.getItem("typeUser");
     this.refreshChambList();
 
   }
@@ -96,4 +100,6 @@ export class ShowChambComponent implements OnInit {
       NumChambreFilter.toString().trim().toLowerCase())
   });
 }
+
+
 }
