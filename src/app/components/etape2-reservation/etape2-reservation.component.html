@@ -52,26 +52,25 @@
 
         <div class="eb-section eb-checkout-form">
             <h2 class="title">Des services supplémentaires</h2>
-          <!--<div class="inner">
+          <div class="inner">
 
              <form [formGroup]="form"  (ngSubmit)="submit()">
              
         <div class="form-group">
-            <label for="website">Website:</label>
-            <div *ngFor="let web of websiteList">
-             
-                <input type="checkbox" [value]="web.name" (change)="onCheckboxChange($event)" />
-                {{web.name}} / {{  web.prix}}  /   {{     web.description}}
-              
+            <div *ngFor="let web of websiteList" class="list-group">
+             <hr>
+                <input class="list-group-item" type="checkbox" [value]="web.name" (change)="onCheckboxChange($event)" />
+                {{web.name}}  / {{web.prix}} $  /   {{ web.description}}
+            <hr>
             </div>
         </div>
          
-        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Sauvgarder</button>
     </form>
     
-            </div>-->
+            </div>
        
-            <div class="inner">
+          <!--<div class="inner">
                 <div class="additional-service-item" data-service-id="972">
                 <input type="checkbox" data-id="972" data-amount="50" data-aplied-taxes="2" value="60" #massage>
                 <div class="additional-service-details">
@@ -97,7 +96,7 @@
                 </div>
                 <span class="toggle-service-full-details"> <i class="far fa-question-circle"></i> </span> <div class="additional-service-full-details"> Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </div> </div>
                 <input type="hidden" id="eb_services_amount" value="0">
-                </div>
+                </div>-->
                 </div>        
             
 
@@ -301,13 +300,13 @@
                 </div>
                 <div class="item booking-nights">
                 <span class="desc">Nuits</span>
-                <span class="value"><strong>26</strong></span>
+                <span class="value"><strong>{{nbJours}}</strong></span>
                 </div>
                 <div class="item guests">
                     <span class="desc">Invités</span>
                     <span class="value">
                     <strong>
-                    {{nbPersonne}} Personnes </strong>
+                    {{nbAdultes}} Adultes , {{nbEnfants}} Enfants </strong>
                 </span>
                 </div>
                 <div id="eb_services_info" class="title" style="display: none"> Des services supplémentaires </div>

@@ -49,9 +49,9 @@ export class FavroomsComponent implements OnInit {
    localStorage.setItem('nbInvitee', this.total);
    localStorage.setItem('nbEnfant', this.nbEnfant);
    localStorage.setItem('nbAdult', this.nbAdult);
-   localStorage.setItem('serviceMassage',"");
-   localStorage.setItem('serviceAireport',"");
-   localStorage.setItem('serviceGuide',"");
+  // localStorage.setItem('serviceMassage',"");
+  // localStorage.setItem('serviceAireport',"");
+   //localStorage.setItem('serviceGuide',"");
    localStorage.setItem("heureArr","");
    localStorage.setItem("coupon","");
    localStorage.setItem("heureDep","");

@@ -21,6 +21,7 @@ export class Etape1ReservationComponent implements OnInit {
   dateArr:any;
   dateDep:any;
 
+ 
   constructor(private service: SharedService, private route:Router) { }
 
   ngOnInit(): void {
@@ -29,6 +30,10 @@ export class Etape1ReservationComponent implements OnInit {
     this.getDateDepart();
     this.enfants = localStorage.getItem('nbEnfant');
      this.adultes = localStorage.getItem('nbAdult');
+
+
+    
+
   }
 
   refrechListChambre(){
@@ -57,9 +62,9 @@ export class Etape1ReservationComponent implements OnInit {
     if(this.dateDep == "" || this.dateArr == "" || this.total == 0   ){
      
     window.location.assign(this.redirectTo);
-     localStorage.setItem('serviceMassage',"");
-    localStorage.setItem('serviceAireport',"");
-    localStorage.setItem('serviceGuide',"");
+    // localStorage.setItem('serviceMassage',"");
+    //localStorage.setItem('serviceAireport',"");
+    //localStorage.setItem('serviceGuide',"");
     localStorage.setItem("heureArr","");
     localStorage.setItem("coupon","");
     localStorage.setItem("heureDep","");

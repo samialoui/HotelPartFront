@@ -1,0 +1,124 @@
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper" >
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+    <div id="content">
+
+             
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                   
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Liste des Réservations</h1>
+                <hr>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                      <!--<img src="assets/images/swiming.jpg" style="height: 140px; width: 100%;"/>-->
+                        <div class="card-header py-3">
+                           <!--<h6 class="m-0 font-weight-bold text-primary">Blogeurs Assurence groupe</h6>-->
+                           
+                            <button type="button" style="margin-left: 85%;" class="btn btn-success float-right m-2" data-toggle="modal" data-target="#exampleModal"
+(click)="addClick()" data-backdrop="static" data-keyboard="false"><i class="fa fa-plus-square"></i>
+    Ajouter Réservation
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #007bff;">
+          <h5 class="modal-title" id="exampleModalLabel" style="color: white;"><strong>{{Modaltitle}}</strong></h5>
+          <button type="button" class="close " style="color: white;" data-dismiss="modal" aria-label="Close" (click)="closeClick()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <app-add-edit-res [res]="res" *ngIf="ActivateAddEditResComp"></app-add-edit-res>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+                          <!-- Button trigger modal -->
+                          <div class="d-flex flex-row col-4">
+                            <input [(ngModel)]="ClientIdFilter" class="form-control" 
+                            (keyup)="filterFn()" placeholder="chercher ...">
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead style="color: white; background-color: #007bff;">
+                                        <tr>
+                                            <th>DateArr</th>
+                                            <th>DateDep</th>
+                                            <th>NbPers</th>
+                                            <th>ChambreId</th>
+                                            <th>NbLit</th>
+                                            <th>Prix</th>
+                                            <th>FactId</th>
+                                            <th>ClientId</th>
+                                            <th>DemandSpecial</th>
+                                            <th>Coupon</th>
+                                            <th>PaymentId</th>
+                                            <th>Confirmation</th>
+                                            <th>Options</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody> 
+                                        <tr *ngFor="let dataItem of ReservationList">
+                                            <td>{{dataItem.DateArr}}</td>
+                                            <td>{{dataItem.DateDep}}</td>
+                                            <td>{{dataItem.NbPers}}</td>
+                                            <td>{{dataItem.ChambreId}}</td>
+                                            <td>{{dataItem.NbLit}}</td>
+                                            <td>{{dataItem.Prix}}</td>
+                                            <td>{{dataItem.FactId}}</td>
+                                            <td>{{dataItem.ClientId}}</td>
+                                            <td>{{dataItem.DemandSpecial}}</td>
+                                            <td>{{dataItem.Coupon}}</td>
+                                            <td>{{dataItem.PaymentId}}</td>
+                                            <td>{{dataItem.Confirmation}}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-transparent mr-1" style="color: blue; background-color: transparent; border-color: transparent;"
+                                                data-toggle="modal" data-target="#exampleModal"
+                                                (click)="editClick(dataItem)" data-backdrop="static" data-keyboard="false">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                                                  </svg></button>
+                                                <button type="button" class="btn btn-transparent mr-1" style="color: red;background-color: transparent;border-color: transparent;"
+                                                (click)="deleteClick(dataItem)" >
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                                  </svg></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+    
+ 
+
+
+</body>
+

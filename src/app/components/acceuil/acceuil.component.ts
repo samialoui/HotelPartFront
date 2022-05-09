@@ -38,6 +38,8 @@ export class AcceuilComponent implements OnInit {
     this.getChabmre3();
     this.getChabmre4();
     this.getChabmre5();
+
+    
   }
 
   refreshChambList(){

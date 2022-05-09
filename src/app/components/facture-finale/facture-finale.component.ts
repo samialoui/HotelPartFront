@@ -23,10 +23,17 @@ export class FactureFinaleComponent implements OnInit {
   PrixTotal: any;
   demandeSpecial: any;
 
+
+  nbEnfants:any;
+  nbAdultes:any
+  nbJours:any;
   constructor(private service:SharedService) { }
 
   ngOnInit(): void {
     this.getInformationRes();
+    this.getNbEnfant();
+    this.getNbAdult();
+    this.getNbJours();
 
   }
 
@@ -73,5 +80,18 @@ export class FactureFinaleComponent implements OnInit {
      this.PrixTotal= prixTotal;
     }
 
+
+    getNbAdult(){
+      var nbAdult= localStorage.getItem("nbAdult");
+      this.nbAdultes= nbAdult;
+     }
+     getNbEnfant(){
+      var nbEnfant= localStorage.getItem("nbEnfant");
+      this.nbEnfants= nbEnfant;
+     }
+     getNbJours(){
+      var nbJour= localStorage.getItem("NbJours");
+      this.nbJours= nbJour;
+     }
 
 }

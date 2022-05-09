@@ -62,7 +62,7 @@ export class ShowChambComponent implements OnInit {
   ChambreNum:"",
   TypeChamb:"",
   PrixNuit:"",
-  nbLit:"",
+  NbLit:"",
   Descript:"",
   Photo: null,
   Disponibilite:"",

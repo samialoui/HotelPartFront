@@ -20,7 +20,7 @@ export class AddEditChambComponent implements OnInit {
   ChambreNum!:string;
   TypeChamb!:string;
   PrixNuit!:string;
-  nbLit!:string;
+  NbLit!:string;
   Descript!:string;
   //Photo!:string;
   Photo: any;
@@ -36,7 +36,7 @@ export class AddEditChambComponent implements OnInit {
     this.ChambreNum=this.chamb.ChambreId;
     this.TypeChamb=this.chamb.TypeChamb;
     this.PrixNuit=this.chamb.PrixNuit;
-    this.nbLit=this.chamb.nbLit;
+    this.NbLit=this.chamb.NbLit;
     this.Descript=this.chamb.Descript;
     this.Photo=this.chamb.Photo;
     this.Disponibilite=this.chamb.Disponibilite;
@@ -80,7 +80,7 @@ export class AddEditChambComponent implements OnInit {
       ChambreNum:this.ChambreNum,
       TypeChamb:this.TypeChamb,
       PrixNuit:this.PrixNuit,
-      nbLit:this.nbLit,
+      nbLit:this.NbLit,
       Descript:this.Descript,
       Photo:this.Photo,
       Disponibilite:this.Disponibilite,

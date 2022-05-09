@@ -19,7 +19,7 @@ export class ChquintipleComponent implements OnInit {
   }
 
   ListChambrecinq(){
-    return this.service.getChambDispo(3).subscribe(data=>{
+    return this.service.getChambDispo(5).subscribe(data=>{
       this.chambListcinq= data;
     });
   }

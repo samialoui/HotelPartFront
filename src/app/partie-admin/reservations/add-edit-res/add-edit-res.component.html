@@ -1,0 +1,101 @@
+<div class="form-group row">
+    <div class="row centered-form">
+    <div class="d-flex flex-row bd-highlight mb-3">
+        <div class="panel panel-default">
+        
+                     <div class="panel-body">
+                    <form class="form-group">
+                        <div class="row">
+                            
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Date Arrivée*</label>
+                                            <input type="text" name="DateArr" id="DateArr" class="form-control" placeholder="Date Arrivée ..."
+                                            [(ngModel)]="DateArr">
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label>Date Départ*</label>
+                                            <input type="text" name="DateDep" id="DateDep" class="form-control" placeholder="Date Départ ..."
+                                            [(ngModel)]="DateDep" >
+                                </div>
+                            </div>
+                            <div class="col-xs-15 col-sm-15 col-md-6">
+                                <div class="form-group">
+                                    <label>Nombre Personne*</label>
+                                            <input type="text" name="NbPers" id="NbPers" class="form-control" placeholder="Nombre Personne ..."
+                                            [(ngModel)]="NbPers" >
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label >Chambre N° *</label>
+                                            <input type="text" name="ChambreId" id="ChambreId" class="form-control" placeholder="N° Chambre ..."
+                                            [(ngModel)]="ChambreId" >
+                                </div>
+                            </div>
+                            <div class="col-xs-15 col-sm-15 col-md-6">
+                                <div class="form-group">
+                                    <label>Prix*</label>
+                                    <input type="text" name="Prix" id="Prix" class="form-control" placeholder="Prix ..."
+                                    [(ngModel)]="Prix" >
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label >Facture*</label>
+                                            <input type="text" name="FactId" id="FactId" class="form-control" placeholder="Facture ..."
+                                            [(ngModel)]="FactId" >
+                                </div>
+                            </div>
+                            <div class="col-xs-15 col-sm-15 col-md-6">
+                                <div class="form-group">
+                                    <label>Client*</label>
+                                    <input type="text" name="ClientId" id="ClientId" class="form-control" placeholder="Client ..."
+                                    [(ngModel)]="ClientId" >
+                                </div>
+                            </div>
+                            <div class="col-xs-15 col-sm-15 col-md-6">
+                                <div class="form-group">
+                                    <label>Demande Special*</label>
+                                            <input type="text" name="DemandSpecial" id="DemandSpecial" class="form-control" placeholder="Demande Special ..."
+                                            [(ngModel)]="DemandSpecial">
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label >Coupon*</label>
+                                            <input type="text" name="Coupon" id="Coupon" class="form-control" placeholder="Coupon ..."
+                                            [(ngModel)]="Coupon" >
+                                </div>
+                            </div>
+                            <div class="col-xs-15 col-sm-15 col-md-6">
+                                <div class="form-group">
+                                    <label>Payment*</label>
+                                    <input type="text" name="PaymentId" id="PaymentId" class="form-control" placeholder="Payment ..."
+                                    [(ngModel)]="PaymentId" >
+                                </div>
+                            </div>
+
+                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                <div class="form-group">
+                                    <label >Confirmation*</label>
+                                            <input type="text" name="Confirmation" id="Confirmation" class="form-control" placeholder="Confirmation ..."
+                                            [(ngModel)]="Confirmation" >
+                                </div>
+                            </div>
+                        
+                        </div>			    			
+                            
+                        <button (click)="addReservation()"   *ngIf="res.Id==0" class="btn btn-primary">Ajouter</button>
+                        <button (click)="putReservation()"  *ngIf="res.Id!=0" class="btn btn-primary">Modifier</button>   
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        

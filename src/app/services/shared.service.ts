@@ -144,6 +144,25 @@ addService(NomService : any, Prix : any,Descript : any, fileToUpload: any ) {
   return this.http.post(this.APIUrl+"/service/AddService", formData);
 }
 
+// all methode reservation
+getResList(): Observable<any[]>{
+  return this.http.get<any>(this.APIUrl+'/reservation/allReservation');
+}
+addReservation(val:any){
+  return this.http.post(this.APIUrl+'/Reservation/addReservation',val);
+}
+
+getReservation(val:any){
+  return this.http.get(this.APIUrl+'/reservation/getReservation'+val);
+}
+
+updateReservation(val:any){
+  return this.http.put(this.APIUrl+'/reservation/putReservation',val);
+}
+deleteReservation(val:any){
+  return this.http.delete(this.APIUrl+'/reservation/deleteReservation'+val);
+}
+
 /*addService(val:any){
   return this.http.post(this.APIUrl+'/service/addService',val);
 }*/

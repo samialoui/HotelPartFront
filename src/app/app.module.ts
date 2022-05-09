@@ -16,7 +16,6 @@ import { ReservationsComponent } from './partie-admin/reservations/reservations.
 import { LoginComponent } from './partie-admin/login/login.component';
 import { NavbarAdminComponent } from './partie-admin/navbar-admin/navbar-admin.component';
 import { AcceuilAdminComponent } from './partie-admin/acceuil-admin/acceuil-admin.component';
-import { ServiceAdminComponent } from './partie-admin/service-admin/service-admin.component';
 import { AdminGestionComponent } from './partie-admin/admin-gestion/admin-gestion.component';
 import { BlogeursComponent } from './partie-admin/blogeurs/blogeurs.component';
 import { AddEditBlogComponent } from './partie-admin/blogeurs/add-edit-blog/add-edit-blog.component';
@@ -41,6 +40,16 @@ import { ChtrippleComponent } from './components/chtripple/chtripple.component';
 import { FavroomsComponent } from './components/favrooms/favrooms.component';
 import { ChquadripleComponent } from './components/chquadriple/chquadriple.component';
 import { ChquintipleComponent } from './components/chquintiple/chquintiple.component';
+import { InfohotelComponent } from './components/infohotel/infohotel.component';
+import { AddEditAvisComponent } from './components/avis/add-edit-avis/add-edit-avis.component';
+import { EndroitsComponent } from './components/endroits/endroits.component';
+import { ZooComponent } from './components/endroits/zoo/zoo.component';
+import { MedinaComponent } from './components/endroits/medina/medina.component';
+import { CarthagelandComponent } from './components/endroits/carthageland/carthageland.component';
+import { YasminhaComponent } from './components/endroits/yasminha/yasminha.component';
+import { AddEditResComponent } from './partie-admin/reservations/add-edit-res/add-edit-res.component';
+import { ShowResComponent } from './partie-admin/reservations/show-res/show-res.component';
+
 
 /*import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';*/
@@ -63,18 +72,22 @@ const appRoute: Routes = [
   {path: 'chambre-tripple', component: ChtrippleComponent},
   {path: 'chambre-quadruple', component: ChquadripleComponent},
   {path: 'chambre-quintuple', component: ChquintipleComponent},
-
+  {path: 'hotelInfo', component: InfohotelComponent},
   {path: 'chambre-favore', component: FavroomsComponent},
+  {path: 'zoo', component: ZooComponent},
+  {path: 'yasmin-Hammamet', component: YasminhaComponent},
+  {path: 'carthage-land', component: CarthagelandComponent},
+  {path: 'medina', component: MedinaComponent},
   /** partie admin */
   {path: 'adminNav', component: NavbarAdminComponent},
   {path: 'admin-acceuil', component: AcceuilAdminComponent},
-  {path: 'reservations', component: ReservationsComponent},
+  {path: 'res', component: ReservationsComponent},
   {path: 'serviceAdmin', component: OffresComponent},
   {path: 'chambres', component: ChambresComponent},
   {path: 'admin-gestion', component: AdminGestionComponent},
   {path: 'blogeurs', component: BlogeursComponent},
   {path: 'avis', component: AvisComponent},
-  {path: 'login', component: LoginComponent},
+  {path: 'gestion/hotel', component: LoginComponent},
 
   
 
@@ -114,6 +127,16 @@ const appRoute: Routes = [
     ChdoubleComponent,
     ChtrippleComponent,
     FavroomsComponent,
+    InfohotelComponent,
+    AddEditAvisComponent,
+    EndroitsComponent,
+    ZooComponent,
+    MedinaComponent,
+    CarthagelandComponent,
+    YasminhaComponent,
+    AddEditResComponent,
+    ShowResComponent,
+  
  
 
   

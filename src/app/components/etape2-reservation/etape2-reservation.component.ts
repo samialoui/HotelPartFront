@@ -13,9 +13,9 @@ export class Etape2ReservationComponent implements OnInit {
   @Input() actualiser: string = "/etape2-res";
   form!: FormGroup;
   websiteList: any = [
-    { id: 1, name: 'massage & Spa', prix:'60 $', description:'     60 $ (Chambre / Voyage)' },
-    { id: 2, name: 'Prise en charge à laéroport', prix:'24 $', description:'     24 $ (Chambre / Voyage)' },
-    { id: 3, name: 'Visite guidée', prix:'36 $', description:'     36 $ (Adultes + Enfants / Voyage)' }
+    { id: 1, name: 'massage & Spa', prix:'60', description:'      (Chambre / Voyage)' },
+    { id: 2, name: 'Prise en charge à l aireport', prix:'24', description:'     (Chambre / Voyage)' },
+    { id: 3, name: 'Visite guidée', prix:'36', description:'      (Adultes + Enfants / Voyage)' }
   ];
 
   
@@ -26,6 +26,9 @@ export class Etape2ReservationComponent implements OnInit {
   Details : any;
   lastClient : any;
   nbPersonne:any;
+  nbEnfants:any;
+  nbAdultes:any
+  nbJours:any;
   dateArr:any;
   dateDep:any;
   heureArr:any;
@@ -35,6 +38,13 @@ export class Etape2ReservationComponent implements OnInit {
 
   alertCoupon: string ="";
   alertDemande: string ="";
+
+
+  valDatArr1:any;
+  valDatArr2:any;
+  valDatDep1:any;
+  valDatDep2:any;
+  nbNuits:any;
 
   constructor( private service : SharedService, private route:Router,private formBuilder: FormBuilder) {
     this.form = this.formBuilder.group({
@@ -49,21 +59,24 @@ export class Etape2ReservationComponent implements OnInit {
    
     if (e.target.checked) {
       website.push(new FormControl(e.target.value));
-      if(e.target.value == "massage") {
-      localStorage.setItem("massageeee","60");
+      if(e.target.value == "massage & Spa") {
+      localStorage.setItem("Massage","60");
+      localStorage.setItem("idMassage","3");
       }
-      if(e.target.value == "aireport") {
-        localStorage.setItem("aireportttt","24");
+      if(e.target.value == "Prise en charge à l aireport") {
+        localStorage.setItem("Aireport","24");
+        localStorage.setItem("idAireport","1003");
         }
-        if(e.target.value == "guide") {
-          localStorage.setItem("guideee","36");
+        if(e.target.value == "Visite guidée") {
+          localStorage.setItem("Visite","36");
+          localStorage.setItem("idVisite","1002");
           }
     } else {
-      localStorage.setItem("massageeee","");
+      localStorage.setItem("Massage","");
    
-      localStorage.setItem("aireportttt","");
+      localStorage.setItem("Aireport","");
     
-        localStorage.setItem("guideee","");
+        localStorage.setItem("Visite","");
     }
   }
      
@@ -87,9 +100,26 @@ export class Etape2ReservationComponent implements OnInit {
     this.getHeureArr();
     this.getHeureDep();
     this.getNbPersonne();
+    this.getNbEnfant();
+    this.getNbAdult();
+    this.getNbJours();
     this.service.getLastClient().subscribe(data=>{
       this.lastClient = data;
     }); 
+     //calcul nombre de jours
+     this.valDatArr1 = localStorage.getItem('arrivée')?.charAt(8);
+     this.valDatArr2 = localStorage.getItem('arrivée')?.charAt(9);
+     var final1 = this.valDatArr1 + this.valDatArr2;
+    
+
+     this.valDatDep1 = localStorage.getItem('départ')?.charAt(8);
+     this.valDatDep2 = localStorage.getItem('départ')?.charAt(9);
+     var final2 = this.valDatDep1 + this.valDatDep2;
+    
+
+     var tot = Number(final2) - Number(final1);
+     this.nbNuits = tot;
+     localStorage.setItem("NbJours",this.nbNuits);
   this.prixTotal();
   localStorage.setItem("prixTotal",this.totalPrix+".104");
   }
@@ -119,12 +149,15 @@ export class Etape2ReservationComponent implements OnInit {
       CodePostal:codePostal.value};
     this.service.addClient(val).subscribe(res=>{
       alert("Client ajouté avec succée");
+      this.connecte = true;
     }); 
-    this.connecte = true;
+    if(this.connecte == false){
+      alert("l'ajout de client est échoué");
+    }
   }
 
   SauvinfoClient(id: any,nom: any,prenom: any,email: any,numtele:any,adress:any){
-    if(localStorage.getItem("coupon") == ""){
+ if(localStorage.getItem("coupon") == ""){
       alert("Vous avez manque d'authentifier ou bien de vérifier le coupon!!");
     }
     else
@@ -136,8 +169,8 @@ export class Etape2ReservationComponent implements OnInit {
     localStorage.setItem("NumTele",numtele);
     localStorage.setItem("Adress",adress);
     window.location.assign(this.redirectTo);
-
     }
+    
 
   }
 
@@ -178,9 +211,10 @@ export class Etape2ReservationComponent implements OnInit {
     var Aireport = Number(localStorage.getItem('serviceAireport'));
     var Guide = Number(localStorage.getItem('serviceGuide'));
     var tva = 3;
+    var nbJours = Number(localStorage.getItem("NbJours"));
     //if(Massage != null && Aireport != null && Guide != null)
     var prixChambre = Number(localStorage.getItem('prixChambre'));
-    var total = Massage+Aireport+Guide+tva+prixChambre;
+    var total = (Massage+Aireport+Guide+prixChambre) * nbJours + tva;
     this.totalPrix=  total;
   }
 
@@ -224,8 +258,24 @@ export class Etape2ReservationComponent implements OnInit {
    var HeureDepart= localStorage.getItem("heureDep");
    this.heureDep= HeureDepart;
   }
-  getNbPersonne(){
+  
+   getNbPersonne(){
     var nbInvite= localStorage.getItem("nbInvitee");
     this.nbPersonne= nbInvite;
    }
+
+   getNbAdult(){
+    var nbAdult= localStorage.getItem("nbAdult");
+    this.nbAdultes= nbAdult;
+   }
+   getNbEnfant(){
+    var nbEnfant= localStorage.getItem("nbEnfant");
+    this.nbEnfants= nbEnfant;
+   }
+   getNbJours(){
+    var nbJour= localStorage.getItem("NbJours");
+    this.nbJours= nbJour;
+   }
+
+
 }

@@ -77,7 +77,7 @@
     
     <div class="col-md-4">
     <p><strong>Invitées :</strong>
-        {{nbPersonne}} Personnes </p>
+        {{nbAdultes}} Adultes, {{nbEnfants}} Enfants </p>
     </div>
     
     <div class="col-md-4">
@@ -100,6 +100,9 @@
     <span class="price-currency">$</span><span class="price-amount">{{PrixTotal}}</span>
     </p>
     </div>
+    <div class="col-md-4">
+        <p><strong>Nuits :</strong> {{nbJours}}</p>
+        </div>
     
     </div>
     </div>
@@ -152,7 +155,7 @@
     <input type="hidden" name="eagle_booking_form_coupon" value="ZANTE20OFF">
     <input type="hidden" name="eagle_booking_form_action_type" value="stripe">
     <input type="hidden" name="eagle_booking_form_payment_status" value="Pending Payment">
-    <button  class="btn btn-success" routerLink="/facture" type="submit">Régler maintenant</button> <!-- id="card-button"    data-secret="pi_3KmqDcJqaTXW5XYi1n57JURv_secret_WWBHWJg6Rcie2l6MsnPAskSIX" -->
+    <button  class="btn btn-success" (click)="addReservation()" type="submit">Régler maintenant</button> <!-- id="card-button"    data-secret="pi_3KmqDcJqaTXW5XYi1n57JURv_secret_WWBHWJg6Rcie2l6MsnPAskSIX" -->
     </form>
     </div>
     </div>

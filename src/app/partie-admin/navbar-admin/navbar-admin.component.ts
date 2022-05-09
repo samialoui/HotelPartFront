@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar-admin.component.css']
 })
 export class NavbarAdminComponent implements OnInit {
+  @Input() redirectTo: string = "/gestion/hotel";
 
   type:any;
   constructor(private route:Router) { }
@@ -17,7 +18,8 @@ export class NavbarAdminComponent implements OnInit {
   deconnexion(){
   localStorage.setItem("typeUser","");
   localStorage.setItem("verif","");
-  this.route.navigate(["/"]);
+  window.location.assign(this.redirectTo);
+
 
   }
 

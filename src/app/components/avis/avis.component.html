@@ -17,7 +17,31 @@
     <div class="container">
    
     <div class="row">
-<div  *ngFor="let dataItem of blogList">
+        <div class="card-header py-3">
+            <!--<h6 class="m-0 font-weight-bold text-primary">Blogeurs Assurence groupe</h6>-->
+            
+             <button type="button" style="margin-left: 79%;" class="btn btn-success float-right m-2" data-toggle="modal" data-target="#exampleModal"
+(click)="addClick()" data-backdrop="static" data-keyboard="false"><i class="fa fa-plus-square"></i>Rédiger un commentaire</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-xl">
+<div class="modal-content">
+<div class="modal-header" style="background-color: #007bff;">
+<h5 class="modal-title" id="exampleModalLabel" style="color: white;"><strong>{{Modaltitle}}</strong></h5>
+<button type="button" class="close " style="color: white;" data-dismiss="modal" aria-label="Close" (click)="closeClick()">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<app-add-edit-blog [blog]="blog" *ngIf="ActivateAddEditBlogComp"></app-add-edit-blog>
+</div>
+</div>
+</div>
+</div>
+</div>
+      
+<div  *ngFor="let dataItem of blogList" style="margin-top: 15px;">
     
     <div class="col-lg-4 col-sm-6">
     <div class="testimonial-item">
@@ -25,8 +49,7 @@
     <h3>{{dataItem.Descript}}</h3>
     <div class="rating">
     <i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i> </div>
-    <p>{{dataItem.Note}}
-    </p>
+    <p>{{dataItem.Note}}</p>
     </div>
     <div class="author">
     <img src="/assets/images/blogeurs/{{dataItem.Photo}}" alt="Ina Aldrich" width="80" height="80">
